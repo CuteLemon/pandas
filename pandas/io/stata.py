@@ -592,7 +592,7 @@ def _cast_to_stata_types(data):
     return data
 
 
-class StataValueLabel:
+class StataValueLabel(object):
     """
     Parse a categorical column and prepare formatted output
 
@@ -833,7 +833,7 @@ class StataMissingValue(StringMixin):
         return value
 
 
-class StataParser:
+class StataParser(object):
 
     def __init__(self):
 
@@ -2483,7 +2483,7 @@ def _pad_bytes_new(name, length):
     return name + b'\x00' * (length - len(name))
 
 
-class StataStrLWriter:
+class StataStrLWriter(object):
     """
     Converter for Stata StrLs
 

@@ -23,7 +23,7 @@ AGG_FUNCTIONS = ['sum', 'prod', 'min', 'max', 'median', 'mean', 'skew', 'mad',
                  'std', 'var', 'sem']
 
 
-class Base:
+class Base(object):
 
     def setup_method(self, method):
 

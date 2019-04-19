@@ -10,7 +10,7 @@ from pandas import DataFrame, Index, MultiIndex, Series
 from pandas.util import testing as tm
 
 
-class TestMultiIndexBasic:
+class TestMultiIndexBasic(object):
 
     def test_multiindex_perf_warn(self):
 

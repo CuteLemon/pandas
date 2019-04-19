@@ -21,7 +21,7 @@ method_blacklist = {
 }
 
 
-class ApplyDictReturn:
+class ApplyDictReturn(object):
     def setup(self):
         self.labels = np.arange(1000).repeat(10)
         self.data = Series(np.random.randn(len(self.labels)))
@@ -31,7 +31,7 @@ class ApplyDictReturn:
                                                         'last': x.values[-1]})
 
 
-class Apply:
+class Apply(object):
 
     def setup_cache(self):
         N = 10**4
@@ -63,7 +63,7 @@ class Apply:
         df.groupby('key').apply(self.df_copy_function)
 
 
-class Groups:
+class Groups(object):
 
     param_names = ['key']
     params = ['int64_small', 'int64_large', 'object_small', 'object_large']
@@ -87,7 +87,7 @@ class Groups:
         self.ser.groupby(self.ser).groups
 
 
-class GroupManyLabels:
+class GroupManyLabels(object):
 
     params = [1, 1000]
     param_names = ['ncols']
@@ -102,7 +102,7 @@ class GroupManyLabels:
         self.df.groupby(self.labels).sum()
 
 
-class Nth:
+class Nth(object):
 
     param_names = ['dtype']
     params = ['float32', 'float64', 'datetime', 'object']
@@ -140,7 +140,7 @@ class Nth:
         self.df['values'].groupby(self.df['key']).nth(0)
 
 
-class DateAttributes:
+class DateAttributes(object):
 
     def setup(self):
         rng = date_range('1/1/2000', '12/31/2005', freq='H')
@@ -151,7 +151,7 @@ class DateAttributes:
         len(self.ts.groupby([self.year, self.month, self.day]))
 
 
-class Int64:
+class Int64(object):
 
     def setup(self):
         arr = np.random.randint(-1 << 12, 1 << 12, (1 << 17, 5))
@@ -167,7 +167,7 @@ class Int64:
         self.df.groupby(self.cols).max()
 
 
-class CountMultiDtype:
+class CountMultiDtype(object):
 
     def setup_cache(self):
         n = 10000
@@ -193,7 +193,7 @@ class CountMultiDtype:
         df.groupby(['key1', 'key2']).count()
 
 
-class CountMultiInt:
+class CountMultiInt(object):
 
     def setup_cache(self):
         n = 10000
@@ -210,7 +210,7 @@ class CountMultiInt:
         df.groupby(['key1', 'key2']).nunique()
 
 
-class AggFunctions:
+class AggFunctions(object):
 
     def setup_cache(self):
         N = 10**5
@@ -240,7 +240,7 @@ class AggFunctions:
         df.groupby('key1').agg([sum, min, max])
 
 
-class GroupStrings:
+class GroupStrings(object):
 
     def setup(self):
         n = 2 * 10**5
@@ -255,7 +255,7 @@ class GroupStrings:
         self.df.groupby(list('abcd')).max()
 
 
-class MultiColumn:
+class MultiColumn(object):
 
     def setup_cache(self):
         N = 10**5
@@ -282,7 +282,7 @@ class MultiColumn:
         df.groupby(['key1', 'key2'])['data1'].agg(np.sum)
 
 
-class Size:
+class Size(object):
 
     def setup(self):
         n = 10**5
@@ -309,7 +309,7 @@ class Size:
         self.draws.groupby(self.cats).size()
 
 
-class GroupByMethods:
+class GroupByMethods(object):
 
     param_names = ['dtype', 'method', 'application']
     params = [['int', 'float', 'object', 'datetime'],
@@ -359,7 +359,7 @@ class GroupByMethods:
         self.as_field_method()
 
 
-class RankWithTies:
+class RankWithTies(object):
     # GH 21237
     param_names = ['dtype', 'tie_method']
     params = [['float64', 'float32', 'int64', 'datetime64'],
@@ -377,7 +377,7 @@ class RankWithTies:
         self.df.groupby('key').rank(method=tie_method)
 
 
-class Float32:
+class Float32(object):
     # GH 13335
     def setup(self):
         tmp1 = (np.random.random(10000) * 0.1).astype(np.float32)
@@ -390,7 +390,7 @@ class Float32:
         self.df.groupby(['a'])['b'].sum()
 
 
-class Categories:
+class Categories(object):
 
     def setup(self):
         N = 10**5
@@ -426,7 +426,7 @@ class Categories:
         self.df_extra_cat.groupby('a', sort=False)['b'].count()
 
 
-class Datelike:
+class Datelike(object):
     # GH 14338
     params = ['period_range', 'date_range', 'date_range_tz']
     param_names = ['grouper']
@@ -443,7 +443,7 @@ class Datelike:
         self.df.groupby(self.grouper).sum()
 
 
-class SumBools:
+class SumBools(object):
     # GH 2692
     def setup(self):
         N = 500
@@ -454,7 +454,7 @@ class SumBools:
         self.df.groupby('ii').sum()
 
 
-class SumMultiLevel:
+class SumMultiLevel(object):
     # GH 9049
     timeout = 120.0
 
@@ -468,7 +468,7 @@ class SumMultiLevel:
         self.df.groupby(level=[0, 1]).sum()
 
 
-class Transform:
+class Transform(object):
 
     def setup(self):
         n1 = 400
@@ -514,7 +514,7 @@ class Transform:
         self.df4.groupby(['jim', 'joe'])['jolie'].transform('max')
 
 
-class TransformBools:
+class TransformBools(object):
 
     def setup(self):
         N = 120000
@@ -528,7 +528,7 @@ class TransformBools:
         self.df['signal'].groupby(self.g).transform(np.mean)
 
 
-class TransformNaN:
+class TransformNaN(object):
     # GH 12737
     def setup(self):
         self.df_nans = DataFrame({'key': np.repeat(np.arange(1000), 10),

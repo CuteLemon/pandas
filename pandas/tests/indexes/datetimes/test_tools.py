@@ -30,7 +30,7 @@ from pandas.util import testing as tm
 from pandas.util.testing import assert_series_equal
 
 
-class TestTimeConversionFormats:
+class TestTimeConversionFormats(object):
 
     @pytest.mark.parametrize('cache', [True, False])
     def test_to_datetime_format(self, cache):
@@ -243,7 +243,7 @@ class TestTimeConversionFormats:
         tm.assert_index_equal(result, expected)
 
 
-class TestToDatetime:
+class TestToDatetime(object):
     @pytest.mark.parametrize("s, _format, dt", [
         ['2015-1-1', '%G-%V-%u', datetime(2014, 12, 29, 0, 0)],
         ['2015-1-4', '%G-%V-%u', datetime(2015, 1, 1, 0, 0)],
@@ -824,7 +824,7 @@ class TestToDatetime:
         assert result == expected
 
 
-class TestToDatetimeUnit:
+class TestToDatetimeUnit(object):
     @pytest.mark.parametrize('cache', [True, False])
     def test_unit(self, cache):
         # GH 11758
@@ -1147,7 +1147,7 @@ class TestToDatetimeUnit:
         tm.assert_index_equal(result, expected)
 
 
-class TestToDatetimeMisc:
+class TestToDatetimeMisc(object):
     def test_to_datetime_barely_out_of_bounds(self):
         # GH#19529
         # GH#19382 close enough to bounds that dropping nanos would result
@@ -1396,7 +1396,7 @@ class TestToDatetimeMisc:
         tm.assert_index_equal(expected, idx6)
 
 
-class TestGuessDatetimeFormat:
+class TestGuessDatetimeFormat(object):
 
     @td.skip_if_not_us_locale
     def test_guess_datetime_format_for_array(self):
@@ -1419,7 +1419,7 @@ class TestGuessDatetimeFormat:
         assert format_for_string_of_nans is None
 
 
-class TestToDatetimeInferFormat:
+class TestToDatetimeInferFormat(object):
 
     @pytest.mark.parametrize('cache', [True, False])
     def test_to_datetime_infer_datetime_format_consistent_format(self, cache):
@@ -1498,7 +1498,7 @@ class TestToDatetimeInferFormat:
                                               cache=cache), expected)
 
 
-class TestDaysInMonth:
+class TestDaysInMonth(object):
     # tests for issue #10154
 
     @pytest.mark.parametrize('cache', [True, False])
@@ -1544,7 +1544,7 @@ class TestDaysInMonth:
                            format="%Y-%m-%d", cache=cache) == '2015-04-31'
 
 
-class TestDatetimeParsingWrappers:
+class TestDatetimeParsingWrappers(object):
 
     @pytest.mark.parametrize('date_str,expected', list({
         '2011-01-01': datetime(2011, 1, 1),
@@ -1866,7 +1866,7 @@ def julian_dates():
     return pd.date_range('2014-1-1', periods=10).to_julian_date().values
 
 
-class TestOrigin:
+class TestOrigin(object):
 
     def test_to_basic(self, julian_dates):
         # gh-11276, gh-11745

@@ -2263,7 +2263,7 @@ item assignment"
         return manager
 
 
-class _AssertRaisesContextmanager:
+class _AssertRaisesContextmanager(object):
     """
     Context manager behind `assert_raises_regex`.
     """
@@ -2458,7 +2458,7 @@ def assert_produces_warning(expected_warning=Warning, filter_level="always",
             )
 
 
-class RNGContext:
+class RNGContext(object):
     """
     Context manager to set the numpy random number generator speed. Returns
     to the original value upon exiting the context manager.

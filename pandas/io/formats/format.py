@@ -103,7 +103,7 @@ return_docstring = """
     """
 
 
-class CategoricalFormatter:
+class CategoricalFormatter(object):
 
     def __init__(self, categorical, buf=None, length=True, na_rep='NaN',
                  footer=True):
@@ -157,7 +157,7 @@ class CategoricalFormatter:
         return str('\n'.join(result))
 
 
-class SeriesFormatter:
+class SeriesFormatter(object):
 
     def __init__(self, series, buf=None, length=True, header=True, index=True,
                  na_rep='NaN', name=False, float_format=None, dtype=True,
@@ -290,7 +290,7 @@ class SeriesFormatter:
         return str(''.join(result))
 
 
-class TextAdjustment:
+class TextAdjustment(object):
 
     def __init__(self):
         self.encoding = get_option("display.encoding")
@@ -351,7 +351,7 @@ def _get_adjustment():
         return TextAdjustment()
 
 
-class TableFormatter:
+class TableFormatter(object):
 
     is_truncated = False
     show_dimensions = None
@@ -913,7 +913,7 @@ def format_array(values, formatter, float_format=None, na_rep='NaN',
     return fmt_obj.get_result()
 
 
-class GenericArrayFormatter:
+class GenericArrayFormatter(object):
 
     def __init__(self, values, digits=7, formatter=None, na_rep='NaN',
                  space=12, float_format=None, justify='right', decimal='.',
@@ -1469,7 +1469,7 @@ def _has_names(index):
         return index.name is not None
 
 
-class EngFormatter:
+class EngFormatter(object):
     """
     Formats float values according to engineering format.
 

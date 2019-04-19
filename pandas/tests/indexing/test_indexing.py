@@ -412,7 +412,7 @@ class TestFancy(Base):
         tm.assert_frame_equal(result, df)
 
         # ix with an object
-        class TO:
+        class TO(object):
 
             def __init__(self, value):
                 self.value = value
@@ -862,7 +862,7 @@ class TestMisc(Base):
         assert wr() is None
 
 
-class TestSeriesNoneCoercion:
+class TestSeriesNoneCoercion(object):
     EXPECTED_RESULTS = [
         # For numeric series, we should coerce to NaN.
         ([1, 2, 3], [np.nan, 2, 3]),
@@ -909,7 +909,7 @@ class TestSeriesNoneCoercion:
             tm.assert_series_equal(start_series, expected_series)
 
 
-class TestDataframeNoneCoercion:
+class TestDataframeNoneCoercion(object):
     EXPECTED_SINGLE_ROW_RESULTS = [
         # For numeric series, we should coerce to NaN.
         ([1, 2, 3], [np.nan, 2, 3]),

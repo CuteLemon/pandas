@@ -17,7 +17,7 @@ from pandas import CategoricalIndex, MultiIndex, RangeIndex
 import pandas.util.testing as tm
 
 
-class TestCommon:
+class TestCommon(object):
 
     def test_droplevel(self, indices):
         # GH 21115

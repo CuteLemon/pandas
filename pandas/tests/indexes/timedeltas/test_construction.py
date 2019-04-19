@@ -9,7 +9,7 @@ from pandas.core.arrays import TimedeltaArray
 import pandas.util.testing as tm
 
 
-class TestTimedeltaIndex:
+class TestTimedeltaIndex(object):
 
     def test_verify_integrity_deprecated(self):
         # GH#23919

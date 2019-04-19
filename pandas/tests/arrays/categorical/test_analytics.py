@@ -12,7 +12,7 @@ from pandas.api.types import is_scalar
 import pandas.util.testing as tm
 
 
-class TestCategoricalAnalytics:
+class TestCategoricalAnalytics(object):
 
     def test_min_max(self):
 

@@ -39,7 +39,7 @@ def list_of_lists_with_none(arr):
     return [[i, -i] for i in arr][:-1] + [None]
 
 
-class SeriesConstructors:
+class SeriesConstructors(object):
 
     param_names = ["data_fmt", "with_index", "dtype"]
     params = [[no_change,
@@ -68,7 +68,7 @@ class SeriesConstructors:
         Series(self.data, index=self.index)
 
 
-class SeriesDtypesConstructors:
+class SeriesDtypesConstructors(object):
 
     def setup(self):
         N = 10**4
@@ -90,7 +90,7 @@ class SeriesDtypesConstructors:
         Index(self.s)
 
 
-class MultiIndexConstructor:
+class MultiIndexConstructor(object):
 
     def setup(self):
         N = 10**4

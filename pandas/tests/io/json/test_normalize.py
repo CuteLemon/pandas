@@ -85,7 +85,7 @@ def missing_metadata():
     ]
 
 
-class TestJSONNormalize:
+class TestJSONNormalize(object):
 
     def test_simple_records(self):
         recs = [{'a': 1, 'b': 2, 'c': 3},
@@ -295,7 +295,7 @@ class TestJSONNormalize:
         tm.assert_frame_equal(result, expected)
 
 
-class TestNestedToRecord:
+class TestNestedToRecord(object):
 
     def test_flat_stays_flat(self):
         recs = [dict(flat1=1, flat2=2),

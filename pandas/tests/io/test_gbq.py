@@ -103,7 +103,7 @@ def test_read_gbq_without_dialect_warns_future_change(monkeypatch):
 
 
 @pytest.mark.single
-class TestToGBQIntegrationWithServiceAccountKeyPath:
+class TestToGBQIntegrationWithServiceAccountKeyPath(object):
 
     @classmethod
     def setup_class(cls):

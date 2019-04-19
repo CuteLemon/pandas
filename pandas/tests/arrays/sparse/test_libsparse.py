@@ -42,7 +42,7 @@ def check_cases(_check_case):
     _check_case([], [], [], [], [], [])
 
 
-class TestSparseIndexUnion:
+class TestSparseIndexUnion(object):
 
     def test_index_make_union(self):
         def _check_case(xloc, xlen, yloc, ylen, eloc, elen):
@@ -190,7 +190,7 @@ class TestSparseIndexUnion:
             a.make_union(b)
 
 
-class TestSparseIndexIntersect:
+class TestSparseIndexIntersect(object):
 
     @td.skip_if_windows
     def test_intersect(self):
@@ -242,7 +242,7 @@ class TestSparseIndexIntersect:
             assert case.intersect(case).equals(case)
 
 
-class TestSparseIndexCommon:
+class TestSparseIndexCommon(object):
 
     def test_int_internal(self):
         idx = _make_index(4, np.array([2, 3], dtype=np.int32), kind='integer')
@@ -390,7 +390,7 @@ class TestSparseIndexCommon:
         # corner cases
 
 
-class TestBlockIndex:
+class TestBlockIndex(object):
 
     def test_block_internal(self):
         idx = _make_index(4, np.array([2, 3], dtype=np.int32), kind='block')
@@ -477,7 +477,7 @@ class TestBlockIndex:
         assert index.to_block_index() is index
 
 
-class TestIntIndex:
+class TestIntIndex(object):
 
     def test_check_integrity(self):
 
@@ -562,7 +562,7 @@ class TestIntIndex:
         assert index.to_int_index() is index
 
 
-class TestSparseOperators:
+class TestSparseOperators(object):
 
     def _op_tests(self, sparse_op, python_op):
         def _check_case(xloc, xlen, yloc, ylen, eloc, elen):

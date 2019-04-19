@@ -8,7 +8,7 @@ from pandas import Categorical, CategoricalIndex, Index, Series, Timestamp
 import pandas.util.testing as tm
 
 
-class TestCategoricalDtypes:
+class TestCategoricalDtypes(object):
 
     def test_is_equal_dtype(self):
 

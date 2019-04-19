@@ -39,7 +39,7 @@ from pandas.tseries.offsets import DateOffset, Tick
 from .base import ExtensionArray, ExtensionOpsMixin
 
 
-class AttributesMixin:
+class AttributesMixin(object):
 
     @property
     def _attributes(self):
@@ -135,7 +135,7 @@ class AttributesMixin:
         raise AbstractMethodError(self)
 
 
-class DatelikeOps:
+class DatelikeOps(object):
     """
     Common ops for DatetimeIndex/PeriodIndex, but not TimedeltaIndex.
     """
@@ -181,7 +181,7 @@ class DatelikeOps:
         return Index(self._format_native_types(date_format=date_format))
 
 
-class TimelikeOps:
+class TimelikeOps(object):
     """
     Common ops for TimedeltaIndex/DatetimeIndex, but not PeriodIndex.
     """

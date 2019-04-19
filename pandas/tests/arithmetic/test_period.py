@@ -21,7 +21,7 @@ from pandas.tseries.frequencies import to_offset
 # Comparisons
 
 
-class TestPeriodIndexComparisons:
+class TestPeriodIndexComparisons(object):
 
     @pytest.mark.parametrize("other", ["2017", 2017])
     def test_eq(self, other):
@@ -260,7 +260,7 @@ class TestPeriodIndexComparisons:
         tm.assert_numpy_array_equal(pd.NaT > left, expected)
 
 
-class TestPeriodSeriesComparisons:
+class TestPeriodSeriesComparisons(object):
     def test_cmp_series_period_series_mixed_freq(self):
         # GH#13200
         base = Series([Period('2011', freq='A'),
@@ -292,7 +292,7 @@ class TestPeriodSeriesComparisons:
         tm.assert_series_equal(base <= ser, exp)
 
 
-class TestPeriodIndexSeriesComparisonConsistency:
+class TestPeriodIndexSeriesComparisonConsistency(object):
     """ Test PeriodIndex and Period Series Ops consistency """
     # TODO: needs parametrization+de-duplication
 
@@ -388,7 +388,7 @@ class TestPeriodIndexSeriesComparisonConsistency:
 # ------------------------------------------------------------------
 # Arithmetic
 
-class TestPeriodFrameArithmetic:
+class TestPeriodFrameArithmetic(object):
 
     def test_ops_frame_period(self):
         # GH#13043
@@ -420,7 +420,7 @@ class TestPeriodFrameArithmetic:
         tm.assert_frame_equal(df - df2, -1 * exp)
 
 
-class TestPeriodIndexArithmetic:
+class TestPeriodIndexArithmetic(object):
     # ---------------------------------------------------------------
     # __add__/__sub__ with PeriodIndex
     # PeriodIndex + other is defined for integers and timedelta-like others
@@ -967,7 +967,7 @@ class TestPeriodIndexArithmetic:
             other - obj
 
 
-class TestPeriodSeriesArithmetic:
+class TestPeriodSeriesArithmetic(object):
     def test_ops_series_timedelta(self):
         # GH#13043
         ser = pd.Series([pd.Period('2015-01-01', freq='D'),
@@ -1011,7 +1011,7 @@ class TestPeriodSeriesArithmetic:
         tm.assert_series_equal(ser - s2, -1 * expected)
 
 
-class TestPeriodIndexSeriesMethods:
+class TestPeriodIndexSeriesMethods(object):
     """ Test PeriodIndex and Period Series Ops consistency """
 
     def _check(self, values, func, expected):

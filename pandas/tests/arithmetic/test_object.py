@@ -17,7 +17,7 @@ import pandas.util.testing as tm
 # Comparisons
 
 
-class TestObjectComparisons:
+class TestObjectComparisons(object):
 
     def test_comparison_object_numeric_nas(self):
         ser = Series(np.random.randn(10), dtype=object)
@@ -71,7 +71,7 @@ class TestObjectComparisons:
 # ------------------------------------------------------------------
 # Arithmetic
 
-class TestArithmetic:
+class TestArithmetic(object):
 
     # TODO: parametrize
     def test_pow_ops_object(self):

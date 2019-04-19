@@ -27,7 +27,7 @@ This is a common base class used for various plotting tests
 
 
 @td.skip_if_no_mpl
-class TestPlotBase:
+class TestPlotBase(object):
 
     def setup_method(self, method):
 

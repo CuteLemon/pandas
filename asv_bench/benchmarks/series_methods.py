@@ -5,7 +5,7 @@ import pandas.util.testing as tm
 from pandas import Series, date_range, NaT
 
 
-class SeriesConstructor:
+class SeriesConstructor(object):
 
     params = [None, 'dict']
     param_names = ['data']
@@ -21,7 +21,7 @@ class SeriesConstructor:
         Series(data=self.data, index=self.idx)
 
 
-class IsIn:
+class IsIn(object):
 
     params = ['int64', 'uint64', 'object']
     param_names = ['dtype']
@@ -34,7 +34,7 @@ class IsIn:
         self.s.isin(self.values)
 
 
-class IsInFloat64:
+class IsInFloat64(object):
 
     def setup(self):
         self.small = Series([1, 2], dtype=np.float64)
@@ -55,7 +55,7 @@ class IsInFloat64:
         self.small.isin(self.few_different_values)
 
 
-class IsInForObjects:
+class IsInForObjects(object):
 
     def setup(self):
         self.s_nans = Series(np.full(10**4, np.nan)).astype(np.object)
@@ -92,7 +92,7 @@ class IsInForObjects:
         self.s_long_floats.isin(self.vals_long_floats)
 
 
-class NSort:
+class NSort(object):
 
     params = ['first', 'last', 'all']
     param_names = ['keep']
@@ -107,7 +107,7 @@ class NSort:
         self.s.nsmallest(3, keep=keep)
 
 
-class Dropna:
+class Dropna(object):
 
     params = ['int', 'datetime']
     param_names = ['dtype']
@@ -124,7 +124,7 @@ class Dropna:
         self.s.dropna()
 
 
-class SearchSorted:
+class SearchSorted(object):
 
     goal_time = 0.2
     params = ['int8', 'int16', 'int32', 'int64',
@@ -143,7 +143,7 @@ class SearchSorted:
         self.s.searchsorted(key)
 
 
-class Map:
+class Map(object):
 
     params = ['dict', 'Series']
     param_names = 'mapper'
@@ -158,7 +158,7 @@ class Map:
         self.s.map(self.map_data)
 
 
-class Clip:
+class Clip(object):
     params = [50, 1000, 10**5]
     param_names = ['n']
 
@@ -169,7 +169,7 @@ class Clip:
         self.s.clip(0, 1)
 
 
-class ValueCounts:
+class ValueCounts(object):
 
     params = ['int', 'uint', 'float', 'object']
     param_names = ['dtype']
@@ -181,7 +181,7 @@ class ValueCounts:
         self.s.value_counts()
 
 
-class Dir:
+class Dir(object):
 
     def setup(self):
         self.s = Series(index=tm.makeStringIndex(10000))
@@ -190,7 +190,7 @@ class Dir:
         dir(self.s)
 
 
-class SeriesGetattr:
+class SeriesGetattr(object):
     # https://github.com/pandas-dev/pandas/issues/19764
     def setup(self):
         self.s = Series(1,

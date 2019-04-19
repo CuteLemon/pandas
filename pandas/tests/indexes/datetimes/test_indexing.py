@@ -13,7 +13,7 @@ from pandas.tseries.offsets import BDay, CDay
 START, END = datetime(2009, 1, 1), datetime(2010, 1, 1)
 
 
-class TestGetItem:
+class TestGetItem(object):
     def test_ellipsis(self):
         # GH#21282
         idx = pd.date_range('2011-01-01', '2011-01-31', freq='D',
@@ -107,7 +107,7 @@ class TestGetItem:
         tm.assert_numpy_array_equal(values, expected)
 
 
-class TestWhere:
+class TestWhere(object):
     def test_where_other(self):
         # other is ndarray or Index
         i = pd.date_range('20130101', periods=3, tz='US/Eastern')
@@ -140,7 +140,7 @@ class TestWhere:
         tm.assert_index_equal(result, expected)
 
 
-class TestTake:
+class TestTake(object):
     def test_take(self):
         # GH#10295
         idx1 = pd.date_range('2011-01-01', '2011-01-31', freq='D', name='idx')
@@ -284,7 +284,7 @@ class TestTake:
             idx.take(np.array([1, -5]))
 
 
-class TestDatetimeIndex:
+class TestDatetimeIndex(object):
     @pytest.mark.parametrize('null', [None, np.nan, pd.NaT])
     @pytest.mark.parametrize('tz', [None, 'UTC', 'US/Eastern'])
     def test_insert_nat(self, tz, null):

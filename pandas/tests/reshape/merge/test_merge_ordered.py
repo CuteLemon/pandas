@@ -6,7 +6,7 @@ from pandas import DataFrame, merge_ordered
 from pandas.util.testing import assert_frame_equal
 
 
-class TestMergeOrdered:
+class TestMergeOrdered(object):
 
     def setup_method(self, method):
         self.left = DataFrame({'key': ['a', 'c', 'e'],

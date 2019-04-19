@@ -54,7 +54,7 @@ def na_value():
     return pd.NaT
 
 
-class BasePeriodTests:
+class BasePeriodTests(object):
     pass
 
 

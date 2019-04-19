@@ -22,7 +22,7 @@ import pandas.io.formats.printing as printing
 from .common import TestData
 
 
-class SharedWithSparse:
+class SharedWithSparse(object):
     """
     A collection of tests Series and SparseSeries can share.
 
@@ -499,7 +499,7 @@ class TestSeriesMisc(TestData, SharedWithSparse):
         assert s.size == 9
 
 
-class TestCategoricalSeries:
+class TestCategoricalSeries(object):
 
     @pytest.mark.parametrize(
         "method",

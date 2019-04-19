@@ -7,7 +7,7 @@ except ImportError:
     import pandas.computation.expressions as expr
 
 
-class Ops:
+class Ops(object):
 
     params = [[True, False], ['default', 1]]
     param_names = ['use_numexpr', 'threads']
@@ -38,7 +38,7 @@ class Ops:
         expr.set_numexpr_threads()
 
 
-class Ops2:
+class Ops2(object):
 
     def setup(self):
         N = 10**3
@@ -88,7 +88,7 @@ class Ops2:
         self.df.dot(self.s)
 
 
-class Timeseries:
+class Timeseries(object):
 
     params = [None, 'US/Eastern']
     param_names = ['tz']
@@ -114,7 +114,7 @@ class Timeseries:
         self.s - self.s.shift()
 
 
-class AddOverflowScalar:
+class AddOverflowScalar(object):
 
     params = [1, -1, 0]
     param_names = ['scalar']
@@ -127,7 +127,7 @@ class AddOverflowScalar:
         checked_add_with_arr(self.arr, scalar)
 
 
-class AddOverflowArray:
+class AddOverflowArray(object):
 
     def setup(self):
         N = 10**6

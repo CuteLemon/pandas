@@ -54,7 +54,7 @@ def set_use_bottleneck(v=True):
 set_use_bottleneck(get_option('compute.use_bottleneck'))
 
 
-class disallow:
+class disallow(object):
 
     def __init__(self, *dtypes):
         super(disallow, self).__init__()
@@ -86,7 +86,7 @@ class disallow:
         return _f
 
 
-class bottleneck_switch:
+class bottleneck_switch(object):
 
     def __init__(self, **kwargs):
         self.kwargs = kwargs

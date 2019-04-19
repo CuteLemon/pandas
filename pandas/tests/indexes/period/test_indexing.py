@@ -12,7 +12,7 @@ from pandas import (
 from pandas.util import testing as tm
 
 
-class TestGetItem:
+class TestGetItem(object):
     def test_ellipsis(self):
         # GH#21282
         idx = period_range('2011-01-01', '2011-01-31', freq='D',
@@ -199,7 +199,7 @@ class TestGetItem:
                     s[v]
 
 
-class TestWhere:
+class TestWhere(object):
     @pytest.mark.parametrize('klass', [list, tuple, np.array, Series])
     def test_where(self, klass):
         i = period_range('20130101', periods=5, freq='D')
@@ -233,7 +233,7 @@ class TestWhere:
         tm.assert_index_equal(result, i2)
 
 
-class TestTake:
+class TestTake(object):
     def test_take(self):
         # GH#10295
         idx1 = pd.period_range('2011-01-01', '2011-01-31', freq='D',
@@ -332,7 +332,7 @@ class TestTake:
             idx.take(np.array([1, -5]))
 
 
-class TestIndexing:
+class TestIndexing(object):
 
     def test_get_loc_msg(self):
         idx = period_range('2000-1-1', freq='A', periods=10)

@@ -1519,7 +1519,7 @@ class Block(PandasObject):
         return self
 
 
-class NonConsolidatableMixIn:
+class NonConsolidatableMixIn(object):
     """ hold methods for the nonconsolidatable blocks """
     _can_consolidate = False
     _verify_integrity = False
@@ -2033,7 +2033,7 @@ class IntBlock(NumericBlock):
         return is_integer_dtype(value) and value.dtype == self.dtype
 
 
-class DatetimeLikeBlockMixin:
+class DatetimeLikeBlockMixin(object):
     """Mixin class for DatetimeBlock, DatetimeTZBlock, and TimedeltaBlock."""
 
     @property
@@ -2178,7 +2178,6 @@ class DatetimeBlock(DatetimeLikeBlockMixin, Block):
         i8values = self.values.view('i8')
 
         if slicer is not None:
-            values = values[..., slicer]
             i8values = i8values[..., slicer]
 
         from pandas.io.formats.format import _get_format_datetime64_from_values

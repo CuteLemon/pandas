@@ -11,7 +11,7 @@ import pandas.util.testing as tm
 from pandas.util.testing import assert_series_equal
 
 
-class TestSeriesInternals:
+class TestSeriesInternals(object):
 
     def test_convert_objects(self):
 

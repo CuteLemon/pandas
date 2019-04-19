@@ -777,7 +777,7 @@ class Unpacker(_Unpacker):
                                        ext_hook=ext_hook)
 
 
-class Iterator:
+class Iterator(object):
 
     """ manage the unpacking iteration,
         close the file on completion """

@@ -34,7 +34,7 @@ def skip_if_no_pandas_parser(parser):
         pytest.skip("cannot evaluate with parser {0!r}".format(parser))
 
 
-class TestCompat:
+class TestCompat(object):
 
     def setup_method(self, method):
         self.df = DataFrame({'A': [1, 2, 3]})
@@ -158,7 +158,7 @@ class TestDataFrameEval(TestData):
                 dict1['a'] + dict2['b'])
 
 
-class TestDataFrameQueryWithMultiIndex:
+class TestDataFrameQueryWithMultiIndex(object):
 
     def test_query_with_named_multiindex(self, parser, engine):
         skip_if_no_pandas_parser(parser)
@@ -354,7 +354,7 @@ class TestDataFrameQueryWithMultiIndex:
 
 
 @td.skip_if_no_ne
-class TestDataFrameQueryNumExprPandas:
+class TestDataFrameQueryNumExprPandas(object):
 
     @classmethod
     def setup_class(cls):
@@ -831,7 +831,7 @@ class TestDataFrameQueryPythonPython(TestDataFrameQueryNumExprPython):
         assert_frame_equal(expected, result)
 
 
-class TestDataFrameQueryStrings:
+class TestDataFrameQueryStrings(object):
 
     def test_str_query_method(self, parser, engine):
         df = DataFrame(np.random.randn(10, 1), columns=['b'])
@@ -1004,7 +1004,7 @@ class TestDataFrameQueryStrings:
         assert_frame_equal(e, r)
 
 
-class TestDataFrameEvalWithFrame:
+class TestDataFrameEvalWithFrame(object):
 
     def setup_method(self, method):
         self.frame = DataFrame(np.random.randn(10, 3), columns=list('abc'))
@@ -1031,7 +1031,7 @@ class TestDataFrameEvalWithFrame:
             df.eval('a {0} b'.format(op), engine=engine, parser=parser)
 
 
-class TestDataFrameQueryBacktickQuoting:
+class TestDataFrameQueryBacktickQuoting(object):
 
     @pytest.fixture(scope='class')
     def df(self):

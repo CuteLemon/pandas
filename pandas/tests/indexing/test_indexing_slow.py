@@ -6,7 +6,7 @@ from pandas import DataFrame
 import pandas.util.testing as tm
 
 
-class TestIndexingSlow:
+class TestIndexingSlow(object):
 
     @pytest.mark.slow
     def test_large_dataframe_indexing(self):

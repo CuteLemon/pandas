@@ -7,7 +7,7 @@ from pandas.util import testing as tm
 import pandas.io.formats.format as fmt
 
 
-class TestEngFormatter:
+class TestEngFormatter(object):
 
     def test_eng_float_formatter(self):
         df = DataFrame({'A': [1.41, 141., 14100, 1410000.]})

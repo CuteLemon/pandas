@@ -14,7 +14,7 @@ import pandas.util.testing as tm
 # Comparisons
 
 
-class TestFrameComparisons:
+class TestFrameComparisons(object):
     # Specifically _not_ flex-comparisons
 
     def test_comparison_invalid(self):
@@ -138,7 +138,7 @@ class TestFrameComparisons:
         tm.assert_frame_equal(df[-mask_b], df.loc[1:1, :])
 
 
-class TestFrameFlexComparisons:
+class TestFrameFlexComparisons(object):
     # TODO: test_bool_flex_frame needs a better name
     def test_bool_flex_frame(self):
         data = np.random.randn(5, 3)
@@ -291,7 +291,7 @@ class TestFrameFlexComparisons:
 # -------------------------------------------------------------------
 # Arithmetic
 
-class TestFrameFlexArithmetic:
+class TestFrameFlexArithmetic(object):
 
     def test_df_add_td64_columnwise(self):
         # GH 22534 Check that column-wise addition broadcasts correctly
@@ -445,7 +445,7 @@ class TestFrameFlexArithmetic:
             df_len0.sub(df['A'], axis=None, fill_value=3)
 
 
-class TestFrameArithmetic:
+class TestFrameArithmetic(object):
     def test_df_add_2d_array_rowlike_broadcasts(self):
         # GH#23000
         arr = np.arange(6).reshape(3, 2)

@@ -177,7 +177,7 @@ SQL_STRINGS = {
 }
 
 
-class MixInBase:
+class MixInBase(object):
 
     def teardown_method(self, method):
         # if setup fails, there may not be a connection to close.
@@ -239,7 +239,7 @@ class SQLAlchemyMixIn(MixInBase):
         pass
 
 
-class PandasSQLTest:
+class PandasSQLTest(object):
     """
     Base class with common private methods for SQLAlchemy and fallback cases.
 
@@ -1034,7 +1034,7 @@ class TestSQLApi(SQLAlchemyMixIn, _TestSQLApi):
         assert all_names == {'Iris-setosa'}
 
 
-class _EngineToConnMixin:
+class _EngineToConnMixin(object):
     """
     A mixin that causes setup_connect to create a conn rather than an engine.
     """
@@ -1734,7 +1734,7 @@ class _TestSQLAlchemyConn(_EngineToConnMixin, _TestSQLAlchemy):
             "Nested transactions rollbacks don't work with Pandas")
 
 
-class _TestSQLiteAlchemy:
+class _TestSQLiteAlchemy(object):
     """
     Test the sqlalchemy backend against an in-memory sqlite database.
 
@@ -1782,7 +1782,7 @@ class _TestSQLiteAlchemy:
             assert len(w) == 0
 
 
-class _TestMySQLAlchemy:
+class _TestMySQLAlchemy(object):
     """
     Test the sqlalchemy backend against an MySQL database.
 
@@ -1849,7 +1849,7 @@ class _TestMySQLAlchemy:
         tm.assert_frame_equal(df, res2)
 
 
-class _TestPostgreSQLAlchemy:
+class _TestPostgreSQLAlchemy(object):
     """
     Test the sqlalchemy backend against an PostgreSQL database.
 

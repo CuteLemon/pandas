@@ -8,7 +8,7 @@ from pandas import (Series, DataFrame, MultiIndex,
                     IndexSlice, concat, date_range)
 
 
-class NumericSeriesIndexing:
+class NumericSeriesIndexing(object):
 
     params = [
         (Int64Index, UInt64Index, Float64Index),
@@ -79,7 +79,7 @@ class NumericSeriesIndexing:
         self.data.loc[:800000]
 
 
-class NonNumericSeriesIndexing:
+class NonNumericSeriesIndexing(object):
 
     params = [
         ('string', 'datetime'),
@@ -114,7 +114,7 @@ class NonNumericSeriesIndexing:
         self.s[[self.lbl]]
 
 
-class DataFrameStringIndexing:
+class DataFrameStringIndexing(object):
 
     def setup(self):
         index = tm.makeStringIndex(1000)
@@ -146,7 +146,7 @@ class DataFrameStringIndexing:
         self.df[self.bool_obj_indexer]
 
 
-class DataFrameNumericIndexing:
+class DataFrameNumericIndexing(object):
 
     def setup(self):
         self.idx_dupe = np.array(range(30)) * 99
@@ -170,7 +170,7 @@ class DataFrameNumericIndexing:
         self.df[self.bool_indexer]
 
 
-class Take:
+class Take(object):
 
     params = ['int', 'datetime']
     param_names = ['index']
@@ -187,7 +187,7 @@ class Take:
         self.s.take(self.indexer)
 
 
-class MultiIndexing:
+class MultiIndexing(object):
 
     def setup(self):
         mi = MultiIndex.from_product([range(1000), range(1000)])
@@ -215,7 +215,7 @@ class MultiIndexing:
         self.mdt.loc[self.idx, :]
 
 
-class IntervalIndexing:
+class IntervalIndexing(object):
 
     def setup_cache(self):
         idx = IntervalIndex.from_breaks(np.arange(1000001))
@@ -235,7 +235,7 @@ class IntervalIndexing:
         monotonic.loc[80000:]
 
 
-class CategoricalIndexIndexing:
+class CategoricalIndexIndexing(object):
 
     params = ['monotonic_incr', 'monotonic_decr', 'non_monotonic']
     param_names = ['index']
@@ -277,7 +277,7 @@ class CategoricalIndexIndexing:
         self.data.get_indexer(self.cat_list)
 
 
-class MethodLookup:
+class MethodLookup(object):
 
     def setup_cache(self):
         s = Series()
@@ -293,7 +293,7 @@ class MethodLookup:
         s.loc
 
 
-class GetItemSingleColumn:
+class GetItemSingleColumn(object):
 
     def setup(self):
         self.df_string_col = DataFrame(np.random.randn(3000, 1), columns=['A'])
@@ -306,7 +306,7 @@ class GetItemSingleColumn:
         self.df_int_col[0]
 
 
-class AssignTimeseriesIndex:
+class AssignTimeseriesIndex(object):
 
     def setup(self):
         N = 100000
@@ -317,7 +317,7 @@ class AssignTimeseriesIndex:
         self.df['date'] = self.df.index
 
 
-class InsertColumns:
+class InsertColumns(object):
 
     def setup(self):
         self.N = 10**3

@@ -47,7 +47,7 @@ def win_types_special(request):
     return request.param
 
 
-class Base:
+class Base(object):
 
     _nan_locs = np.arange(20, 40)
     _inf_locs = np.array([])
@@ -846,7 +846,7 @@ class TestEWM(Base):
 #
 # further note that we are only checking rolling for fully dtype
 # compliance (though both expanding and ewm inherit)
-class Dtype:
+class Dtype(object):
     window = 2
 
     funcs = {
@@ -1900,7 +1900,7 @@ class TestMoments(Base):
         assert result2.dtype == np.float_
 
 
-class TestPairwise:
+class TestPairwise(object):
 
     # GH 7738
     df1s = [DataFrame([[2, 4], [1, 2], [5, 2], [8, 1]], columns=[0, 1]),
@@ -3274,7 +3274,7 @@ class TestMomentsConsistency(Base):
             assert result.dtypes[0] == np.dtype("f8")
 
 
-class TestGrouperGrouping:
+class TestGrouperGrouping(object):
 
     def setup_method(self, method):
         self.series = Series(np.arange(10))
@@ -3443,7 +3443,7 @@ class TestGrouperGrouping:
         tm.assert_frame_equal(result, expected)
 
 
-class TestRollingTS:
+class TestRollingTS(object):
 
     # rolling time-series friendly
     # xref GH13327

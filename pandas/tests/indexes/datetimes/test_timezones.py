@@ -43,7 +43,7 @@ fixed_off = FixedOffset(-420, '-07:00')
 fixed_off_no_name = FixedOffset(-330, None)
 
 
-class TestDatetimeIndexTimezones:
+class TestDatetimeIndexTimezones(object):
     # -------------------------------------------------------------
     # DatetimeIndex.tz_convert
     def test_tz_convert_nat(self):
@@ -1092,7 +1092,7 @@ class TestDatetimeIndexTimezones:
             assert ts == index[i]
 
 
-class TestDateRange:
+class TestDateRange(object):
     """Tests for date_range with timezones"""
     def test_hongkong_tz_convert(self):
         # GH#1673 smoke test
@@ -1145,7 +1145,7 @@ class TestDateRange:
         assert stamp == rng[1]
 
 
-class TestToDatetime:
+class TestToDatetime(object):
     """Tests for the to_datetime constructor with timezones"""
     def test_to_datetime_utc(self):
         arr = np.array([dateutil.parser.parse('2012-06-13T01:39:00Z')],

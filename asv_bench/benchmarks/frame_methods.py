@@ -7,7 +7,7 @@ from pandas import (
 import pandas.util.testing as tm
 
 
-class GetNumericData:
+class GetNumericData(object):
 
     def setup(self):
         self.df = DataFrame(np.random.randn(10000, 25))
@@ -19,7 +19,7 @@ class GetNumericData:
         self.df._get_numeric_data()
 
 
-class Lookup:
+class Lookup(object):
 
     def setup(self):
         self.df = DataFrame(np.random.randn(10000, 8),
@@ -39,7 +39,7 @@ class Lookup:
         self.df.lookup(self.row_labels_all, self.col_labels_all)
 
 
-class Reindex:
+class Reindex(object):
 
     def setup(self):
         N = 10**3
@@ -65,7 +65,7 @@ class Reindex:
         self.df2.reindex(np.random.permutation(range(1200)))
 
 
-class Rename:
+class Rename(object):
 
     def setup(self):
         N = 10**3
@@ -95,7 +95,7 @@ class Rename:
         self.df.rename(index=self.dict_idx, columns=self.dict_idx)
 
 
-class Iteration:
+class Iteration(object):
 
     def setup(self):
         N = 1000
@@ -189,7 +189,7 @@ class Iteration:
             pass
 
 
-class ToString:
+class ToString(object):
 
     def setup(self):
         self.df = DataFrame(np.random.randn(100, 10))
@@ -198,7 +198,7 @@ class ToString:
         self.df.to_string()
 
 
-class ToHTML:
+class ToHTML(object):
 
     def setup(self):
         nrows = 500
@@ -210,7 +210,7 @@ class ToHTML:
         self.df2.to_html()
 
 
-class Repr:
+class Repr(object):
 
     def setup(self):
         nrows = 10000
@@ -235,7 +235,7 @@ class Repr:
         repr(self.df_wide)
 
 
-class MaskBool:
+class MaskBool(object):
 
     def setup(self):
         data = np.random.randn(1000, 500)
@@ -251,7 +251,7 @@ class MaskBool:
         self.bools.astype(float).mask(self.mask)
 
 
-class Isnull:
+class Isnull(object):
 
     def setup(self):
         N = 10**3
@@ -283,7 +283,7 @@ class Isnull:
         isnull(self.df_obj)
 
 
-class Fillna:
+class Fillna(object):
 
     params = ([True, False], ['pad', 'bfill'])
     param_names = ['inplace', 'method']
@@ -297,7 +297,7 @@ class Fillna:
         self.df.fillna(inplace=inplace, method=method)
 
 
-class Dropna:
+class Dropna(object):
 
     params = (['all', 'any'], [0, 1])
     param_names = ['how', 'axis']
@@ -317,7 +317,7 @@ class Dropna:
         self.df_mixed.dropna(how=how, axis=axis)
 
 
-class Count:
+class Count(object):
 
     params = [0, 1]
     param_names = ['axis']
@@ -345,7 +345,7 @@ class Count:
         self.df_mixed.count(axis=axis, level=1)
 
 
-class Apply:
+class Apply(object):
 
     def setup(self):
         self.df = DataFrame(np.random.randn(1000, 100))
@@ -373,7 +373,7 @@ class Apply:
         self.df3.apply(lambda x: x['A'] + x['B'], axis=1)
 
 
-class Dtypes:
+class Dtypes(object):
 
     def setup(self):
         self.df = DataFrame(np.random.randn(1000, 1000))
@@ -382,7 +382,7 @@ class Dtypes:
         self.df.dtypes
 
 
-class Equals:
+class Equals(object):
 
     def setup(self):
         N = 10**3
@@ -418,7 +418,7 @@ class Equals:
         self.object_df.equals(self.object_df_nan)
 
 
-class Interpolate:
+class Interpolate(object):
 
     params = [None, 'infer']
     param_names = ['downcast']
@@ -443,7 +443,7 @@ class Interpolate:
         self.df2.interpolate(downcast=downcast)
 
 
-class Shift:
+class Shift(object):
     # frame shift speedup issue-5609
     params = [0, 1]
     param_names = ['axis']
@@ -455,7 +455,7 @@ class Shift:
         self.df.shift(1, axis=axis)
 
 
-class Nunique:
+class Nunique(object):
 
     def setup(self):
         self.df = DataFrame(np.random.randn(10000, 1000))
@@ -464,7 +464,7 @@ class Nunique:
         self.df.nunique()
 
 
-class Duplicated:
+class Duplicated(object):
 
     def setup(self):
         n = (1 << 20)
@@ -482,7 +482,7 @@ class Duplicated:
         self.df2.duplicated()
 
 
-class XS:
+class XS(object):
 
     params = [0, 1]
     param_names = ['axis']
@@ -495,7 +495,7 @@ class XS:
         self.df.xs(self.N / 2, axis=axis)
 
 
-class SortValues:
+class SortValues(object):
 
     params = [True, False]
     param_names = ['ascending']
@@ -507,7 +507,7 @@ class SortValues:
         self.df.sort_values(by='A', ascending=ascending)
 
 
-class SortIndexByColumns:
+class SortIndexByColumns(object):
 
     def setup(self):
         N = 10000
@@ -520,7 +520,7 @@ class SortIndexByColumns:
         self.df.sort_values(by=['key1', 'key2'])
 
 
-class Quantile:
+class Quantile(object):
 
     params = [0, 1]
     param_names = ['axis']
@@ -532,7 +532,7 @@ class Quantile:
         self.df.quantile([0.1, 0.5], axis=axis)
 
 
-class GetDtypeCounts:
+class GetDtypeCounts(object):
     # 2807
     def setup(self):
         self.df = DataFrame(np.random.randn(10, 10000))
@@ -544,7 +544,7 @@ class GetDtypeCounts:
         self.df.info()
 
 
-class NSort:
+class NSort(object):
 
     params = ['first', 'last', 'all']
     param_names = ['keep']
@@ -566,7 +566,7 @@ class NSort:
         self.df.nsmallest(100, ['A', 'B'], keep=keep)
 
 
-class Describe:
+class Describe(object):
 
     def setup(self):
         self.df = DataFrame({

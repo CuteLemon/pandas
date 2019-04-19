@@ -21,7 +21,7 @@ from pandas.util.testing import (
     assert_series_equal)
 
 
-class TestSeriesAnalytics:
+class TestSeriesAnalytics(object):
 
     def test_describe(self):
         s = Series([0, 1, 2, 3, 4], name='int_data')
@@ -1211,7 +1211,7 @@ def assert_check_nselect_boundary(vals, dtype, method):
     tm.assert_series_equal(result, expected)
 
 
-class TestNLargestNSmallest:
+class TestNLargestNSmallest(object):
 
     @pytest.mark.parametrize(
         "r", [Series([3., 2, 1, 2, '5'], dtype='object'),
@@ -1331,7 +1331,7 @@ class TestNLargestNSmallest:
         assert_series_equal(result, expected)
 
 
-class TestCategoricalSeriesAnalytics:
+class TestCategoricalSeriesAnalytics(object):
 
     def test_count(self):
 

@@ -9,7 +9,7 @@ class DecodeError(Exception):
     pass
 
 
-class TestObj:
+class TestObj(object):
 
     def _arr_to_str(self, arr):
         return ''.join(str(c) for c in arr)

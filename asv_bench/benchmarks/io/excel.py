@@ -4,7 +4,7 @@ from pandas import DataFrame, date_range, ExcelWriter, read_excel
 import pandas.util.testing as tm
 
 
-class Excel:
+class Excel(object):
 
     params = ['openpyxl', 'xlsxwriter', 'xlwt']
     param_names = ['engine']

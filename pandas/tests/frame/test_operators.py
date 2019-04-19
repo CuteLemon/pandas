@@ -15,7 +15,7 @@ from pandas.util.testing import (
     assert_frame_equal, assert_numpy_array_equal, assert_series_equal)
 
 
-class TestDataFrameUnaryOperators:
+class TestDataFrameUnaryOperators(object):
     # __pos__, __neg__, __inv__
 
     @pytest.mark.parametrize('df,expected', [
@@ -88,7 +88,7 @@ class TestDataFrameUnaryOperators:
             (+ df['a'])
 
 
-class TestDataFrameLogicalOperators:
+class TestDataFrameLogicalOperators(object):
     # &, |, ^
 
     def test_logical_ops_empty_frame(self):
@@ -203,7 +203,7 @@ class TestDataFrameLogicalOperators:
         assert_series_equal(result, expected)
 
 
-class TestDataFrameOperators:
+class TestDataFrameOperators(object):
 
     @pytest.mark.parametrize('op', [operator.add, operator.sub,
                                     operator.mul, operator.truediv])

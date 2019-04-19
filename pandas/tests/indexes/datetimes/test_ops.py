@@ -390,7 +390,7 @@ class TestDatetimeIndexOps(Ops):
             idx.offset = BDay()
 
 
-class TestBusinessDatetimeIndex:
+class TestBusinessDatetimeIndex(object):
 
     def setup_method(self, method):
         self.rng = bdate_range(START, END)
@@ -449,7 +449,7 @@ class TestBusinessDatetimeIndex:
         assert not t1.identical(t2v)
 
 
-class TestCustomDatetimeIndex:
+class TestCustomDatetimeIndex(object):
     def setup_method(self, method):
         self.rng = bdate_range(START, END, freq='C')
 

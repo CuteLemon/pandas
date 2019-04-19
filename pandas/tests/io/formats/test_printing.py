@@ -33,7 +33,7 @@ def test_repr_binary_type():
     assert res == b
 
 
-class TestFormattBase:
+class TestFormattBase(object):
 
     def test_adjoin(self):
         data = [['a', 'b', 'c'], ['dd', 'ee', 'ff'], ['ggg', 'hhh', 'iii']]
@@ -121,7 +121,7 @@ c        ff         いいい"""
         assert adjoined == expected
 
 
-class TestTableSchemaRepr:
+class TestTableSchemaRepr(object):
 
     @classmethod
     def setup_class(cls):

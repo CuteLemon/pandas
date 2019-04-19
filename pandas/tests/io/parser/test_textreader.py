@@ -21,7 +21,7 @@ from pandas.util.testing import assert_frame_equal
 from pandas.io.parsers import TextFileReader, read_csv
 
 
-class TestTextReader:
+class TestTextReader(object):
 
     @pytest.fixture(autouse=True)
     def setup_method(self, datapath):

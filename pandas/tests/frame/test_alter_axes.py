@@ -300,7 +300,7 @@ class TestDataFrameAlterAxes():
     def test_set_index_custom_label_type(self):
         # GH 24969
 
-        class Thing:
+        class Thing(object):
             def __init__(self, name, color):
                 self.name = name
                 self.color = color
@@ -1376,7 +1376,7 @@ class TestDataFrameAlterAxes():
         tm.assert_frame_equal(result, expected)
 
 
-class TestIntervalIndex:
+class TestIntervalIndex(object):
 
     def test_setitem(self):
 

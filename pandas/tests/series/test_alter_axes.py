@@ -10,7 +10,7 @@ from pandas import DataFrame, Index, MultiIndex, RangeIndex, Series
 import pandas.util.testing as tm
 
 
-class TestSeriesAlterAxes:
+class TestSeriesAlterAxes(object):
 
     def test_setindex(self, string_series):
         # wrong type

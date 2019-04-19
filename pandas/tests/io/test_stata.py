@@ -36,7 +36,7 @@ def parsed_114(dirpath):
     return parsed_114
 
 
-class TestStata:
+class TestStata(object):
 
     @pytest.fixture(autouse=True)
     def setup_method(self, datapath):

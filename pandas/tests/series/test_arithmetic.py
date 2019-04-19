@@ -14,7 +14,7 @@ def _permute(obj):
     return obj.take(np.random.permutation(len(obj)))
 
 
-class TestSeriesFlexArithmetic:
+class TestSeriesFlexArithmetic(object):
     @pytest.mark.parametrize(
         'ts',
         [
@@ -55,7 +55,7 @@ class TestSeriesFlexArithmetic:
             tm.assert_almost_equal(result, expected)
 
 
-class TestSeriesArithmetic:
+class TestSeriesArithmetic(object):
     # Some of these may end up in tests/arithmetic, but are not yet sorted
 
     def test_add_series_with_period_index(self):
@@ -78,7 +78,7 @@ class TestSeriesArithmetic:
 # ------------------------------------------------------------------
 # Comparisons
 
-class TestSeriesFlexComparison:
+class TestSeriesFlexComparison(object):
     def test_comparison_flex_basic(self):
         left = pd.Series(np.random.randn(10))
         right = pd.Series(np.random.randn(10))
@@ -106,7 +106,7 @@ class TestSeriesFlexComparison:
                 getattr(left, op)(right, axis=1)
 
 
-class TestSeriesComparison:
+class TestSeriesComparison(object):
     def test_comparison_different_length(self):
         a = Series(['a', 'b', 'c'])
         b = Series(['b', 'a'])

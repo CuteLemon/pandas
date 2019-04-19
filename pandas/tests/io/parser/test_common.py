@@ -1792,7 +1792,7 @@ def test_file_handles_with_open(all_parsers, csv1):
 
 def test_invalid_file_buffer_class(all_parsers):
     # see gh-15337
-    class InvalidBuffer:
+    class InvalidBuffer(object):
         pass
 
     parser = all_parsers

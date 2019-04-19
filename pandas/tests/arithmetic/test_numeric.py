@@ -19,7 +19,7 @@ import pandas.util.testing as tm
 # Comparisons
 
 
-class TestNumericComparisons:
+class TestNumericComparisons(object):
     def test_operator_series_comparison_zerorank(self):
         # GH#13006
         result = np.float64(0) > pd.Series([1, 2, 3])
@@ -60,7 +60,7 @@ class TestNumericComparisons:
 # ------------------------------------------------------------------
 # Numeric dtypes Arithmetic with Timedelta Scalar
 
-class TestNumericArraylikeArithmeticWithTimedeltaLike:
+class TestNumericArraylikeArithmeticWithTimedeltaLike(object):
 
     # TODO: also check name retentention
     @pytest.mark.parametrize('box_cls', [np.array, pd.Index, pd.Series])
@@ -185,7 +185,7 @@ class TestNumericArraylikeArithmeticWithTimedeltaLike:
 # ------------------------------------------------------------------
 # Arithmetic
 
-class TestDivisionByZero:
+class TestDivisionByZero(object):
 
     def test_div_zero(self, zero, numeric_idx):
         idx = numeric_idx
@@ -395,7 +395,7 @@ class TestDivisionByZero:
         assert not res.fillna(0).equals(res2.fillna(0))
 
 
-class TestMultiplicationDivision:
+class TestMultiplicationDivision(object):
     # __mul__, __rmul__, __div__, __rdiv__, __floordiv__, __rfloordiv__
     # for non-timestamp/timedelta/period dtypes
 
@@ -627,7 +627,7 @@ class TestMultiplicationDivision:
             tm.assert_series_equal(result, expected)
 
 
-class TestAdditionSubtraction:
+class TestAdditionSubtraction(object):
     # __add__, __sub__, __radd__, __rsub__, __iadd__, __isub__
     # for non-timestamp/timedelta/period dtypes
 
@@ -834,7 +834,7 @@ class TestAdditionSubtraction:
         check(tser, 5)
 
 
-class TestUFuncCompat:
+class TestUFuncCompat(object):
 
     @pytest.mark.parametrize('holder', [pd.Int64Index, pd.UInt64Index,
                                         pd.Float64Index, pd.RangeIndex,
@@ -894,7 +894,7 @@ class TestUFuncCompat:
         tm.assert_equal(result, exp)
 
 
-class TestObjectDtypeEquivalence:
+class TestObjectDtypeEquivalence(object):
     # Tests that arithmetic operations match operations executed elementwise
 
     @pytest.mark.parametrize('dtype', [None, object])
@@ -937,7 +937,7 @@ class TestObjectDtypeEquivalence:
         tm.assert_series_equal(result.astype(float), expected)
 
 
-class TestNumericArithmeticUnsorted:
+class TestNumericArithmeticUnsorted(object):
     # Tests in this class have been moved from type-specific test modules
     #  but not yet sorted, parametrized, and de-duplicated
 

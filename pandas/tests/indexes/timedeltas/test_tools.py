@@ -11,7 +11,7 @@ import pandas.util.testing as tm
 from pandas.util.testing import assert_series_equal
 
 
-class TestTimedeltas:
+class TestTimedeltas(object):
 
     def test_to_timedelta(self):
         def conv(v):

@@ -18,7 +18,7 @@ import pandas.core.indexes.period as period
 import pandas.util.testing as tm
 
 
-class TestPeriodConstruction:
+class TestPeriodConstruction(object):
     def test_construction(self):
         i1 = Period('1/1/2005', freq='M')
         i2 = Period('Jan 2005')
@@ -472,7 +472,7 @@ class TestPeriodConstruction:
             Period('2011-01', freq='1D1W')
 
 
-class TestPeriodMethods:
+class TestPeriodMethods(object):
     def test_round_trip(self):
         p = Period('2000Q1')
         new_p = tm.round_trip_pickle(p)
@@ -655,7 +655,7 @@ class TestPeriodMethods:
         assert isinstance(res, str)
 
 
-class TestPeriodProperties:
+class TestPeriodProperties(object):
     "Test properties such as year, month, weekday, etc...."
 
     @pytest.mark.parametrize('freq', ['A', 'M', 'D', 'H'])
@@ -923,7 +923,7 @@ class TestPeriodProperties:
                       minute=0, second=0).days_in_month == 29
 
 
-class TestPeriodField:
+class TestPeriodField(object):
 
     def test_get_period_field_array_raises_on_out_of_range(self):
         msg = "Buffer dtype mismatch, expected 'int64_t' but got 'double'"
@@ -931,7 +931,7 @@ class TestPeriodField:
             libperiod.get_period_field_arr(-1, np.empty(1), 0)
 
 
-class TestComparisons:
+class TestComparisons(object):
 
     def setup_method(self, method):
         self.january1 = Period('2000-01', 'M')
@@ -1016,7 +1016,7 @@ class TestComparisons:
             assert not left >= right
 
 
-class TestArithmetic:
+class TestArithmetic(object):
 
     def test_sub_delta(self):
         left, right = Period('2011', freq='A'), Period('2007', freq='A')

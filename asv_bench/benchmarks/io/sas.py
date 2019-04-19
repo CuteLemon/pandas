@@ -3,7 +3,7 @@ import os
 from pandas import read_sas
 
 
-class SAS:
+class SAS(object):
 
     params = ['sas7bdat', 'xport']
     param_names = ['format']

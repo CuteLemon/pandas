@@ -10,7 +10,7 @@ except ImportError:
     from pandas.tseries.converter import DatetimeConverter
 
 
-class DatetimeIndex:
+class DatetimeIndex(object):
 
     params = ['dst', 'repeated', 'tz_aware', 'tz_local', 'tz_naive']
     param_names = ['index_type']
@@ -60,7 +60,7 @@ class DatetimeIndex:
         self.index.to_pydatetime()
 
 
-class TzLocalize:
+class TzLocalize(object):
 
     params = [None, 'US/Eastern', 'UTC', dateutil.tz.tzutc()]
     param_names = 'tz'
@@ -80,7 +80,7 @@ class TzLocalize:
         self.index.tz_localize(tz, ambiguous='infer')
 
 
-class ResetIndex:
+class ResetIndex(object):
 
     params = [None, 'US/Eastern']
     param_names = 'tz'
@@ -93,7 +93,7 @@ class ResetIndex:
         self.df.reset_index()
 
 
-class Factorize:
+class Factorize(object):
 
     params = [None, 'Asia/Tokyo']
     param_names = 'tz'
@@ -107,7 +107,7 @@ class Factorize:
         self.dti.factorize()
 
 
-class InferFreq:
+class InferFreq(object):
 
     params = [None, 'D', 'B']
     param_names = ['freq']
@@ -123,7 +123,7 @@ class InferFreq:
         infer_freq(self.idx)
 
 
-class TimeDatetimeConverter:
+class TimeDatetimeConverter(object):
 
     def setup(self):
         N = 100000
@@ -133,7 +133,7 @@ class TimeDatetimeConverter:
         DatetimeConverter.convert(self.rng, None, None)
 
 
-class Iteration:
+class Iteration(object):
 
     params = [date_range, period_range]
     param_names = ['time_index']
@@ -153,7 +153,7 @@ class Iteration:
                 break
 
 
-class ResampleDataFrame:
+class ResampleDataFrame(object):
 
     params = ['max', 'mean', 'min']
     param_names = ['method']
@@ -167,7 +167,7 @@ class ResampleDataFrame:
         self.resample()
 
 
-class ResampleSeries:
+class ResampleSeries(object):
 
     params = (['period', 'datetime'], ['5min', '1D'], ['mean', 'ohlc'])
     param_names = ['index', 'freq', 'method']
@@ -187,7 +187,7 @@ class ResampleSeries:
         self.resample()
 
 
-class ResampleDatetetime64:
+class ResampleDatetetime64(object):
     # GH 7754
     def setup(self):
         rng3 = date_range(start='2000-01-01 00:00:00',
@@ -198,7 +198,7 @@ class ResampleDatetetime64:
         self.dt_ts.resample('1S').last()
 
 
-class AsOf:
+class AsOf(object):
 
     params = ['DataFrame', 'Series']
     param_names = ['constructor']
@@ -245,7 +245,7 @@ class AsOf:
         self.ts3.asof(self.date_last)
 
 
-class SortIndex:
+class SortIndex(object):
 
     params = [True, False]
     param_names = ['monotonic']
@@ -264,7 +264,7 @@ class SortIndex:
         self.s[:10000]
 
 
-class IrregularOps:
+class IrregularOps(object):
 
     def setup(self):
         N = 10**5
@@ -277,7 +277,7 @@ class IrregularOps:
         self.left + self.right
 
 
-class Lookup:
+class Lookup(object):
 
     def setup(self):
         N = 1500000
@@ -290,7 +290,7 @@ class Lookup:
         self.ts.index._cleanup()
 
 
-class ToDatetimeYYYYMMDD:
+class ToDatetimeYYYYMMDD(object):
 
     def setup(self):
         rng = date_range(start='1/1/2000', periods=10000, freq='D')
@@ -300,7 +300,7 @@ class ToDatetimeYYYYMMDD:
         to_datetime(self.stringsD, format='%Y%m%d')
 
 
-class ToDatetimeISO8601:
+class ToDatetimeISO8601(object):
 
     def setup(self):
         rng = date_range(start='1/1/2000', periods=20000, freq='H')
@@ -325,7 +325,7 @@ class ToDatetimeISO8601:
         to_datetime(self.strings_tz_space)
 
 
-class ToDatetimeNONISO8601:
+class ToDatetimeNONISO8601(object):
 
     def setup(self):
         N = 10000
@@ -342,7 +342,7 @@ class ToDatetimeNONISO8601:
         to_datetime(self.diff_offset)
 
 
-class ToDatetimeFormatQuarters:
+class ToDatetimeFormatQuarters(object):
 
     def setup(self):
         self.s = Series(['2Q2005', '2Q05', '2005Q1', '05Q1'] * 10000)
@@ -351,7 +351,7 @@ class ToDatetimeFormatQuarters:
         to_datetime(self.s)
 
 
-class ToDatetimeFormat:
+class ToDatetimeFormat(object):
 
     def setup(self):
         self.s = Series(['19MAY11', '19MAY11:00:00:00'] * 100000)
@@ -364,7 +364,7 @@ class ToDatetimeFormat:
         to_datetime(self.s, format='%d%b%y', exact=False)
 
 
-class ToDatetimeCache:
+class ToDatetimeCache(object):
 
     params = [True, False]
     param_names = ['cache']
@@ -392,7 +392,7 @@ class ToDatetimeCache:
         to_datetime(self.dup_string_with_tz, cache=cache)
 
 
-class DatetimeAccessor:
+class DatetimeAccessor(object):
 
     params = [None, 'US/Eastern', 'UTC', dateutil.tz.tzutc()]
     param_names = 'tz'

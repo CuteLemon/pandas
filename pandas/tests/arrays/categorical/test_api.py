@@ -9,7 +9,7 @@ from pandas.tests.arrays.categorical.common import TestCategorical
 import pandas.util.testing as tm
 
 
-class TestCategoricalAPI:
+class TestCategoricalAPI(object):
 
     def test_ordered_api(self):
         # GH 9347
@@ -448,7 +448,7 @@ class TestCategoricalAPIWithFactor(TestCategorical):
         tm.assert_index_equal(cat.categories, Index(['a', 'b', 'c', 'd']))
 
 
-class TestPrivateCategoricalAPI:
+class TestPrivateCategoricalAPI(object):
 
     def test_codes_immutable(self):
 

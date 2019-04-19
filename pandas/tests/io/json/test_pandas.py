@@ -37,7 +37,7 @@ _cat_frame['sort'] = np.arange(len(_cat_frame), dtype='int64')
 _mixed_frame = _frame.copy()
 
 
-class TestPandasContainer:
+class TestPandasContainer(object):
 
     @pytest.fixture(scope="function", autouse=True)
     def setup(self, datapath):
@@ -535,7 +535,7 @@ class TestPandasContainer:
     def test_frame_nonprintable_bytes(self):
         # GH14256: failing column caused segfaults, if it is not the last one
 
-        class BinaryThing:
+        class BinaryThing(object):
 
             def __init__(self, hexed):
                 self.hexed = hexed

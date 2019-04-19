@@ -410,7 +410,7 @@ class SingleConstructorOffset(DateOffset):
         return cls()
 
 
-class _CustomMixin:
+class _CustomMixin(object):
     """
     Mixin for classes that define and validate calendar, holidays,
     and weekdays attributes.
@@ -428,7 +428,7 @@ class _CustomMixin:
         object.__setattr__(self, "calendar", calendar)
 
 
-class BusinessMixin:
+class BusinessMixin(object):
     """
     Mixin to business types to provide related functions.
     """
@@ -1414,7 +1414,7 @@ class Week(DateOffset):
         return cls(weekday=weekday)
 
 
-class _WeekOfMonthMixin:
+class _WeekOfMonthMixin(object):
     """
     Mixin for methods common to WeekOfMonth and LastWeekOfMonth.
     """

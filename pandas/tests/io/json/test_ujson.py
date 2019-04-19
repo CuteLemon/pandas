@@ -58,7 +58,7 @@ def numpy(request):
     return request.param
 
 
-class TestUltraJSONTests:
+class TestUltraJSONTests(object):
 
     @pytest.mark.skipif(compat.is_platform_32bit(),
                         reason="not compliant on 32-bit, xref #15865")
@@ -440,11 +440,11 @@ class TestUltraJSONTests:
     def test_encode_recursion_max(self):
         # 8 is the max recursion depth
 
-        class O2:
+        class O2(object):
             member = 0
             pass
 
-        class O1:
+        class O1(object):
             member = 0
             pass
 
@@ -568,7 +568,7 @@ class TestUltraJSONTests:
         assert "[1,2,3]" == f.getvalue()
 
     def test_dump_to_file_like(self):
-        class FileLike:
+        class FileLike(object):
 
             def __init__(self):
                 self.bytes = ''
@@ -596,7 +596,7 @@ class TestUltraJSONTests:
                                     ujson.load(f, numpy=True))
 
     def test_load_file_like(self):
-        class FileLike:
+        class FileLike(object):
 
             def read(self):
                 try:
@@ -627,7 +627,7 @@ class TestUltraJSONTests:
             ujson.encode(12839128391289382193812939)
 
     def test_encode_numeric_overflow_nested(self):
-        class Nested:
+        class Nested(object):
             x = 12839128391289382193812939
 
         for _ in range(0, 100):
@@ -662,7 +662,7 @@ class TestUltraJSONTests:
     def test_to_dict(self):
         d = {"key": 31337}
 
-        class DictTest:
+        class DictTest(object):
             def toDict(self):
                 return d
 
@@ -674,7 +674,7 @@ class TestUltraJSONTests:
 
     def test_default_handler(self):
 
-        class _TestObject:
+        class _TestObject(object):
 
             def __init__(self, val):
                 self.val = val
@@ -722,7 +722,7 @@ class TestUltraJSONTests:
                 ujson.decode(ujson.encode(obj_list, default_handler=str)))
 
 
-class TestNumpyJSONTests:
+class TestNumpyJSONTests(object):
 
     @pytest.mark.parametrize("bool_input", [True, False])
     def test_bool(self, bool_input):
@@ -885,7 +885,7 @@ class TestNumpyJSONTests:
         assert (np.array(["a", "b"]) == output[2]).all()
 
 
-class TestPandasJSONTests:
+class TestPandasJSONTests(object):
 
     def test_dataframe(self, orient, numpy):
         if orient == "records" and numpy:

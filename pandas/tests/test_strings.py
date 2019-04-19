@@ -159,7 +159,7 @@ def any_allowed_skipna_inferred_dtype(request):
     return inferred_dtype, values
 
 
-class TestStringMethods:
+class TestStringMethods(object):
 
     def test_api(self):
 

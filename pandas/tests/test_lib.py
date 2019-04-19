@@ -9,7 +9,7 @@ from pandas import Index
 import pandas.util.testing as tm
 
 
-class TestMisc:
+class TestMisc(object):
 
     def test_max_len_string_array(self):
 
@@ -42,7 +42,7 @@ class TestMisc:
         tm.assert_numpy_array_equal(np.array(out), expected)
 
 
-class TestIndexing:
+class TestIndexing(object):
 
     def test_maybe_indices_to_slice_left_edge(self):
         target = np.arange(100)

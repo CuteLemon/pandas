@@ -11,7 +11,7 @@ from pandas import DatetimeIndex, Series, date_range
 import pandas.util.testing as tm
 
 
-class TestDatetimeIndexArithmetic:
+class TestDatetimeIndexArithmetic(object):
 
     # -------------------------------------------------------------
     # DatetimeIndex.shift is used in integer addition

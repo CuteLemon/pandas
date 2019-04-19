@@ -11,7 +11,7 @@ from pandas.tseries import offsets
 from pandas.tseries.frequencies import to_offset
 
 
-class TestTimestampArithmetic:
+class TestTimestampArithmetic(object):
     def test_overflow_offset(self):
         # no overflow expected
 

@@ -20,7 +20,7 @@ def numeric_as_float(data):
             data[v] = data[v].astype(np.float64)
 
 
-class TestXport:
+class TestXport(object):
 
     @pytest.fixture(autouse=True)
     def setup_method(self, datapath):

@@ -76,7 +76,7 @@ def idx_cols_multi():
     return ['Origin', 'Destination', 'Period', 'TripPurp', 'LinkType']
 
 
-class TestMergeMulti:
+class TestMergeMulti(object):
 
     def setup_method(self):
         self.index = MultiIndex(levels=[['foo', 'bar', 'baz', 'qux'],
@@ -581,7 +581,7 @@ class TestMergeMulti:
         tm.assert_frame_equal(result, expected)
 
 
-class TestJoinMultiMulti:
+class TestJoinMultiMulti(object):
 
     def test_join_multi_multi(self, left_multi, right_multi, join_type,
                               on_cols_multi, idx_cols_multi):

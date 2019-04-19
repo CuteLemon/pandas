@@ -23,7 +23,7 @@ from pandas.tseries.offsets import (
 START, END = datetime(2009, 1, 1), datetime(2010, 1, 1)
 
 
-class TestTimestampEquivDateRange:
+class TestTimestampEquivDateRange(object):
     # Older tests in TestTimeSeries constructed their `stamp` objects
     # using `date_range` instead of the `Timestamp` constructor.
     # TestTimestampEquivDateRange checks that these are equivalent in the
@@ -598,7 +598,7 @@ class TestDateRanges(TestData):
         tm.assert_index_equal(result, expected)
 
 
-class TestGenRangeGeneration:
+class TestGenRangeGeneration(object):
 
     def test_generate(self):
         rng1 = list(generate_range(START, END, offset=BDay()))
@@ -666,7 +666,7 @@ class TestGenRangeGeneration:
             pd.date_range(start, end, freq=BDay())
 
 
-class TestBusinessDateRange:
+class TestBusinessDateRange(object):
 
     def test_constructor(self):
         bdate_range(START, END, freq=BDay())
@@ -741,7 +741,7 @@ class TestBusinessDateRange:
         tm.assert_index_equal(result, expected)
 
 
-class TestCustomDateRange:
+class TestCustomDateRange(object):
 
     def test_constructor(self):
         bdate_range(START, END, freq=CDay())

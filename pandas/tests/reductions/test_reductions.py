@@ -35,7 +35,7 @@ def get_objs():
 objs = get_objs()
 
 
-class TestReductions:
+class TestReductions(object):
 
     @pytest.mark.parametrize('opname', ['max', 'min'])
     @pytest.mark.parametrize('obj', objs)
@@ -152,7 +152,7 @@ class TestReductions:
         tm.assert_series_equal(result, expected)
 
 
-class TestIndexReductions:
+class TestIndexReductions(object):
     # Note: the name TestIndexReductions indicates these tests
     #  were moved from a Index-specific test file, _not_ that these tests are
     #  intended long-term to be Index-specific
@@ -414,7 +414,7 @@ class TestIndexReductions:
         assert ci.max() == 'b'
 
 
-class TestSeriesReductions:
+class TestSeriesReductions(object):
     # Note: the name TestSeriesReductions indicates these tests
     #  were moved from a series-specific test file, _not_ that these tests are
     #  intended long-term to be series-specific
@@ -864,7 +864,7 @@ class TestSeriesReductions:
             np.isnan(s.idxmax(skipna=False))
 
 
-class TestDatetime64SeriesReductions:
+class TestDatetime64SeriesReductions(object):
     # Note: the name TestDatetime64SeriesReductions indicates these tests
     #  were moved from a series-specific test file, _not_ that these tests are
     #  intended long-term to be series-specific
@@ -921,7 +921,7 @@ class TestDatetime64SeriesReductions:
         assert result == exp
 
 
-class TestCategoricalSeriesReductions:
+class TestCategoricalSeriesReductions(object):
     # Note: the name TestCategoricalSeriesReductions indicates these tests
     #  were moved from a series-specific test file, _not_ that these tests are
     #  intended long-term to be series-specific
@@ -984,7 +984,7 @@ class TestCategoricalSeriesReductions:
         assert _max == "a"
 
 
-class TestSeriesMode:
+class TestSeriesMode(object):
     # Note: the name TestSeriesMode indicates these tests
     #  were moved from a series-specific test file, _not_ that these tests are
     #  intended long-term to be series-specific

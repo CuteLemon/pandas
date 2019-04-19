@@ -35,7 +35,7 @@ def _check_ne_builtin_clash(expr):
                                      .format(expr=expr, s=s))
 
 
-class AbstractEngine:
+class AbstractEngine(object):
 
     """Object serving as a base class for all engines."""
 

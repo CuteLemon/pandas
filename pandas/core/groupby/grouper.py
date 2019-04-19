@@ -25,7 +25,7 @@ from pandas.core.series import Series
 from pandas.io.formats.printing import pprint_thing
 
 
-class Grouper:
+class Grouper(object):
     """
     A Grouper allows the user to specify a groupby instruction for a target
     object
@@ -204,7 +204,7 @@ class Grouper:
         return "{}({})".format(cls_name, attrs)
 
 
-class Grouping:
+class Grouping(object):
 
     """
     Holds the grouping information for a single key

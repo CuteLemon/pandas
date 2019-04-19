@@ -18,7 +18,7 @@ _mixed_frame = _frame.copy()
 _mixed_frame['foo'] = 'bar'
 
 
-class TestData:
+class TestData(object):
 
     @cache_readonly
     def frame(self):

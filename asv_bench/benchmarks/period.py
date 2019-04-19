@@ -3,7 +3,7 @@ from pandas import (
 from pandas.tseries.frequencies import to_offset
 
 
-class PeriodProperties:
+class PeriodProperties(object):
 
     params = (['M', 'min'],
               ['year', 'month', 'day', 'hour', 'minute', 'second',
@@ -18,7 +18,7 @@ class PeriodProperties:
         getattr(self.per, attr)
 
 
-class PeriodUnaryMethods:
+class PeriodUnaryMethods(object):
 
     params = ['M', 'min']
     param_names = ['freq']
@@ -36,7 +36,7 @@ class PeriodUnaryMethods:
         self.per.asfreq('A')
 
 
-class PeriodConstructor:
+class PeriodConstructor(object):
     params = [['D'], [True, False]]
     param_names = ['freq', 'is_offset']
 
@@ -50,7 +50,7 @@ class PeriodConstructor:
         Period('2012-06-01', freq=freq)
 
 
-class PeriodIndexConstructor:
+class PeriodIndexConstructor(object):
 
     params = [['D'], [True, False]]
     param_names = ['freq', 'is_offset']
@@ -79,7 +79,7 @@ class PeriodIndexConstructor:
         PeriodIndex(self.daily_ints, freq=freq)
 
 
-class DataFramePeriodColumn:
+class DataFramePeriodColumn(object):
 
     def setup(self):
         self.rng = period_range(start='1/1/1990', freq='S', periods=20000)
@@ -94,7 +94,7 @@ class DataFramePeriodColumn:
         self.df.set_index('col2', append=True)
 
 
-class Algorithms:
+class Algorithms(object):
 
     params = ['index', 'series']
     param_names = ['typ']
@@ -115,7 +115,7 @@ class Algorithms:
         self.vector.value_counts()
 
 
-class Indexing:
+class Indexing(object):
 
     def setup(self):
         self.index = period_range(start='1985', periods=1000, freq='D')

@@ -8,7 +8,7 @@ from pandas import DataFrame, lreshape, melt, wide_to_long
 import pandas.util.testing as tm
 
 
-class TestMelt:
+class TestMelt(object):
 
     def setup_method(self, method):
         self.df = tm.makeTimeDataFrame()[:10]
@@ -281,7 +281,7 @@ class TestMelt:
             multi.melt(['A'], ['F'], col_level=0)
 
 
-class TestLreshape:
+class TestLreshape(object):
 
     def test_pairs(self):
         data = {'birthdt': ['08jan2009', '20dec2008', '30dec2008', '21dec2008',
@@ -355,7 +355,7 @@ class TestLreshape:
             lreshape(df, spec)
 
 
-class TestWideToLong:
+class TestWideToLong(object):
 
     def test_simple(self):
         np.random.seed(123)

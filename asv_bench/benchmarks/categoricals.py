@@ -12,7 +12,7 @@ except ImportError:
         pass
 
 
-class Concat:
+class Concat(object):
 
     def setup(self):
         N = 10**5
@@ -28,7 +28,7 @@ class Concat:
         union_categoricals([self.a, self.b])
 
 
-class Constructor:
+class Constructor(object):
 
     def setup(self):
         N = 10**5
@@ -77,7 +77,7 @@ class Constructor:
         pd.Categorical(self.series)
 
 
-class ValueCounts:
+class ValueCounts(object):
 
     params = [True, False]
     param_names = ['dropna']
@@ -92,7 +92,7 @@ class ValueCounts:
         self.ts.value_counts(dropna=dropna)
 
 
-class Repr:
+class Repr(object):
 
     def setup(self):
         self.sel = pd.Series(['s1234']).astype('category')
@@ -101,7 +101,7 @@ class Repr:
         str(self.sel)
 
 
-class SetCategories:
+class SetCategories(object):
 
     def setup(self):
         n = 5 * 10**5
@@ -113,7 +113,7 @@ class SetCategories:
         self.ts.cat.set_categories(self.ts.cat.categories[::2])
 
 
-class RemoveCategories:
+class RemoveCategories(object):
 
     def setup(self):
         n = 5 * 10**5
@@ -125,7 +125,7 @@ class RemoveCategories:
         self.ts.cat.remove_categories(self.ts.cat.categories[::2])
 
 
-class Rank:
+class Rank(object):
 
     def setup(self):
         N = 10**5
@@ -162,7 +162,7 @@ class Rank:
         self.s_int_cat_ordered.rank()
 
 
-class Isin:
+class Isin(object):
 
     params = ['object', 'int64']
     param_names = ['dtype']
@@ -181,7 +181,7 @@ class Isin:
         self.series.isin(self.sample)
 
 
-class IsMonotonic:
+class IsMonotonic(object):
 
     def setup(self):
         N = 1000
@@ -201,7 +201,7 @@ class IsMonotonic:
         self.s.is_monotonic_decreasing
 
 
-class Contains:
+class Contains(object):
 
     def setup(self):
         N = 10**5
@@ -216,7 +216,7 @@ class Contains:
         self.key in self.c
 
 
-class CategoricalSlicing:
+class CategoricalSlicing(object):
 
     params = ['monotonic_incr', 'monotonic_decr', 'non_monotonic']
     param_names = ['index']
@@ -257,7 +257,7 @@ class CategoricalSlicing:
         self.data[self.data == self.cat_scalar]
 
 
-class Indexing:
+class Indexing(object):
 
     def setup(self):
         N = 10**5

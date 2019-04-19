@@ -8,7 +8,7 @@ def dataframe():
     return DataFrame({'a': [1, 2], 'b': [3, 4]})
 
 
-class TestDataFrameValidate:
+class TestDataFrameValidate(object):
     """Tests for error handling related to data types of method arguments."""
 
     @pytest.mark.parametrize("func", ["query", "eval", "set_index",

@@ -31,7 +31,7 @@ def frame_apply(obj, func, axis=0, broadcast=None,
                  args=args, kwds=kwds)
 
 
-class FrameApply:
+class FrameApply(object):
 
     def __init__(self, obj, func, broadcast, raw, reduce, result_type,
                  ignore_failures, args, kwds):

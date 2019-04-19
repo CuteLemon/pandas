@@ -9,7 +9,7 @@ from pandas import (
 import pandas.util.testing as tm
 
 
-class Base:
+class Base(object):
     """Tests common to IntervalIndex with any subtype"""
 
     def test_astype_idempotent(self, index):

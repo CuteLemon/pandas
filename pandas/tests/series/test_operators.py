@@ -17,7 +17,7 @@ from pandas.util.testing import (
 from .common import TestData
 
 
-class TestSeriesLogicalOps:
+class TestSeriesLogicalOps(object):
     @pytest.mark.parametrize('bool_op', [operator.and_,
                                          operator.or_, operator.xor])
     def test_bool_operators_with_nas(self, bool_op):
@@ -356,7 +356,7 @@ class TestSeriesLogicalOps:
         assert_frame_equal(s4.to_frame() | s3.to_frame(), exp)
 
 
-class TestSeriesComparisons:
+class TestSeriesComparisons(object):
     def test_comparisons(self):
         left = np.random.randn(10)
         right = np.random.randn(10)
@@ -566,7 +566,7 @@ class TestSeriesComparisons:
         assert_series_equal(result, expected)
 
 
-class TestSeriesFlexComparisonOps:
+class TestSeriesFlexComparisonOps(object):
 
     def test_comparison_flex_alignment(self):
         left = Series([1, 3, 2], index=list('abc'))
@@ -747,7 +747,7 @@ class TestSeriesOperators(TestData):
         assert_series_equal(result[1], expected[1])
 
 
-class TestSeriesUnaryOps:
+class TestSeriesUnaryOps(object):
     # __neg__, __pos__, __inv__
 
     def test_neg(self):

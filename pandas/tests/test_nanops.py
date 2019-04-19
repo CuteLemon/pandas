@@ -18,7 +18,7 @@ import pandas.util.testing as tm
 use_bn = nanops._USE_BOTTLENECK
 
 
-class TestnanopsDataFrame:
+class TestnanopsDataFrame(object):
 
     def setup_method(self, method):
         np.random.seed(11235)
@@ -713,7 +713,7 @@ class TestnanopsDataFrame:
         assert not nanops._bn_ok_dtype(self.arr_obj.dtype, 'test')
 
 
-class TestEnsureNumeric:
+class TestEnsureNumeric(object):
 
     def test_numeric_values(self):
         # Test integer
@@ -761,7 +761,7 @@ class TestEnsureNumeric:
             nanops._ensure_numeric([])
 
 
-class TestNanvarFixedValues:
+class TestNanvarFixedValues(object):
 
     # xref GH10242
 
@@ -874,7 +874,7 @@ class TestNanvarFixedValues:
         return np.random.RandomState(1234)
 
 
-class TestNanskewFixedValues:
+class TestNanskewFixedValues(object):
 
     # xref GH 11974
 
@@ -924,7 +924,7 @@ class TestNanskewFixedValues:
         return np.random.RandomState(1234)
 
 
-class TestNankurtFixedValues:
+class TestNankurtFixedValues(object):
 
     # xref GH 11974
 
@@ -974,7 +974,7 @@ class TestNankurtFixedValues:
         return np.random.RandomState(1234)
 
 
-class TestDatetime64NaNOps:
+class TestDatetime64NaNOps(object):
     @pytest.mark.parametrize('tz', [None, 'UTC'])
     @pytest.mark.xfail(reason="disabled")
     # Enabling mean changes the behavior of DataFrame.mean

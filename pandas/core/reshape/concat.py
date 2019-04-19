@@ -229,7 +229,7 @@ def concat(objs, axis=0, join='outer', join_axes=None, ignore_index=False,
     return op.get_result()
 
 
-class _Concatenator:
+class _Concatenator(object):
     """
     Orchestrates a concatenation operation for BlockManagers
     """

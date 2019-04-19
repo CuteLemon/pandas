@@ -6,7 +6,7 @@ import pytest
 from pandas.io.msgpack import ExtType, OutOfData, Unpacker, packb
 
 
-class TestUnpack:
+class TestUnpack(object):
 
     def test_unpack_array_header_from_file(self):
         f = BytesIO(packb([1, 2, 3, 4]))

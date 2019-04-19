@@ -281,7 +281,7 @@ def test_repr_large():
 # ----------------------------------------------------------------------------
 # Reductions
 
-class TestReductions:
+class TestReductions(object):
 
     def test_min_max(self):
         arr = period_array([

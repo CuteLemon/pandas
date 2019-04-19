@@ -36,7 +36,7 @@ def setup(*args, **kwargs):
     np.random.seed(1234)
 
 
-class BaseIO:
+class BaseIO(object):
     """
     Base class for IO benchmarks
     """

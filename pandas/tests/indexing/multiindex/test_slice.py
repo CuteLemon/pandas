@@ -13,7 +13,7 @@ from pandas.util import testing as tm
 
 
 @pytest.mark.filterwarnings("ignore:\\n.ix:DeprecationWarning")
-class TestMultiIndexSlicers:
+class TestMultiIndexSlicers(object):
 
     def test_per_axis_per_level_getitem(self):
 

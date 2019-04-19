@@ -6,7 +6,7 @@ import pandas as pd
 # structure
 
 
-class TestSeriesBlockInternals:
+class TestSeriesBlockInternals(object):
 
     def test_setitem_invalidates_datetime_index_freq(self):
         # GH#24096 altering a datetime64tz Series inplace invalidates the

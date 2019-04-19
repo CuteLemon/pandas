@@ -24,7 +24,7 @@ def test_ix_deprecation():
 
 
 @pytest.mark.filterwarnings("ignore:\\n.ix:DeprecationWarning")
-class TestIX:
+class TestIX(object):
 
     def test_ix_loc_setitem_consistency(self):
 

@@ -24,7 +24,7 @@ import pandas.util.testing as tm
 from pandas.tseries import offsets
 
 
-class TestTimestampProperties:
+class TestTimestampProperties(object):
 
     def test_properties_business(self):
         ts = Timestamp('2017-10-01', freq='B')
@@ -192,7 +192,7 @@ class TestTimestampProperties:
         assert dt.resolution == Timedelta(nanoseconds=1)
 
 
-class TestTimestampConstructors:
+class TestTimestampConstructors(object):
 
     def test_constructor(self):
         base_str = '2014-07-01 09:00'
@@ -616,7 +616,7 @@ class TestTimestampConstructors:
         assert result == expected
 
 
-class TestTimestamp:
+class TestTimestamp(object):
 
     def test_tz(self):
         tstr = '2014-02-01 09:00'
@@ -787,7 +787,7 @@ class TestTimestamp:
         assert t2.tz_convert(tz='UTC').freq == t2.freq
 
 
-class TestTimestampNsOperations:
+class TestTimestampNsOperations(object):
 
     def setup_method(self, method):
         self.timestamp = Timestamp(datetime.utcnow())
@@ -874,7 +874,7 @@ class TestTimestampNsOperations:
         assert t.nanosecond == 10
 
 
-class TestTimestampToJulianDate:
+class TestTimestampToJulianDate(object):
 
     def test_compare_1700(self):
         r = Timestamp('1700-06-23').to_julian_date()
@@ -897,7 +897,7 @@ class TestTimestampToJulianDate:
         assert r == 2451769.0416666666666666
 
 
-class TestTimestampConversion:
+class TestTimestampConversion(object):
     def test_conversion(self):
         # GH#9255
         ts = Timestamp('2000-01-01')

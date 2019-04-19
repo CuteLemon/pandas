@@ -218,7 +218,7 @@ def rewrite_axis_style_signature(name, extra_params):
 # module http://matplotlib.org/users/license.html
 
 
-class Substitution:
+class Substitution(object):
     """
     A decorator to take a function's docstring and perform string
     substitution on it.
@@ -279,7 +279,7 @@ class Substitution:
         return result
 
 
-class Appender:
+class Appender(object):
     """
     A function decorator that will append an addendum to the docstring
     of the target function.

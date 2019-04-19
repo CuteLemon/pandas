@@ -2,7 +2,7 @@ import pandas as pd
 import numpy as np
 
 
-class Methods:
+class Methods(object):
 
     sample_time = 0.2
     params = (['DataFrame', 'Series'],
@@ -21,7 +21,7 @@ class Methods:
         getattr(self.roll, method)()
 
 
-class ExpandingMethods:
+class ExpandingMethods(object):
 
     sample_time = 0.2
     params = (['DataFrame', 'Series'],
@@ -39,7 +39,7 @@ class ExpandingMethods:
         getattr(self.expanding, method)()
 
 
-class EWMMethods:
+class EWMMethods(object):
 
     sample_time = 0.2
     params = (['DataFrame', 'Series'],
@@ -73,7 +73,7 @@ class VariableWindowMethods(Methods):
         self.roll = getattr(pd, constructor)(arr, index=index).rolling(window)
 
 
-class Pairwise:
+class Pairwise(object):
 
     sample_time = 0.2
     params = ([10, 1000, None],
@@ -94,7 +94,7 @@ class Pairwise:
         getattr(r, method)(self.df, pairwise=pairwise)
 
 
-class Quantile:
+class Quantile(object):
     sample_time = 0.2
     params = (['DataFrame', 'Series'],
               [10, 1000],
@@ -113,7 +113,7 @@ class Quantile:
         self.roll.quantile(percentile, interpolation=interpolation)
 
 
-class PeakMemFixed:
+class PeakMemFixed(object):
 
     def setup(self):
         N = 10

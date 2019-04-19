@@ -27,7 +27,7 @@ from pandas.core.indexes.datetimelike import DatetimeIndexOpsMixin
 import pandas.util.testing as tm
 
 
-class CheckStringMixin:
+class CheckStringMixin(object):
 
     def test_string_methods_dont_fail(self):
         repr(self.container)
@@ -42,7 +42,7 @@ class CheckStringMixin:
         bytes(self.unicode_container)
 
 
-class CheckImmutable:
+class CheckImmutable(object):
     mutable_regex = re.compile('does not support mutable operations')
 
     def check_mutable_error(self, *args, **kwargs):
@@ -87,9 +87,9 @@ class CheckImmutable:
         assert result == expected
 
 
-class TestPandasDelegate:
+class TestPandasDelegate(object):
 
-    class Delegator:
+    class Delegator(object):
         _properties = ['foo']
         _methods = ['bar']
 
@@ -149,7 +149,7 @@ class TestPandasDelegate:
         sys.getsizeof(delegate)
 
 
-class Ops:
+class Ops(object):
 
     def _allow_na_ops(self, obj):
         """Whether to skip test cases including NaN"""
@@ -979,7 +979,7 @@ class TestTranspose(Ops):
                 np.transpose(obj, axes=1)
 
 
-class TestNoNewAttributesMixin:
+class TestNoNewAttributesMixin(object):
 
     def test_mixin(self):
         class T(NoNewAttributesMixin):
@@ -1001,7 +1001,7 @@ class TestNoNewAttributesMixin:
         assert not hasattr(t, "b")
 
 
-class TestToIterable:
+class TestToIterable(object):
     # test that we convert an iterable to python types
 
     dtypes = [

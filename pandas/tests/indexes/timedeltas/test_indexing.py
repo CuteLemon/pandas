@@ -8,7 +8,7 @@ from pandas import Index, Timedelta, TimedeltaIndex, timedelta_range
 import pandas.util.testing as tm
 
 
-class TestGetItem:
+class TestGetItem(object):
     def test_ellipsis(self):
         # GH#21282
         idx = timedelta_range('1 day', '31 day', freq='D', name='idx')
@@ -59,12 +59,12 @@ class TestGetItem:
             tdi.get_loc(key)
 
 
-class TestWhere:
+class TestWhere(object):
     # placeholder for symmetry with DatetimeIndex and PeriodIndex tests
     pass
 
 
-class TestTake:
+class TestTake(object):
     def test_take(self):
         # GH 10295
         idx1 = timedelta_range('1 day', '31 day', freq='D', name='idx')
@@ -168,7 +168,7 @@ class TestTake:
             idx.take(np.array([1, -5]))
 
 
-class TestTimedeltaIndex:
+class TestTimedeltaIndex(object):
 
     def test_insert(self):
 

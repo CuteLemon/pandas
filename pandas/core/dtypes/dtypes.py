@@ -39,7 +39,7 @@ def register_extension_dtype(cls):
     return cls
 
 
-class Registry:
+class Registry(object):
     """
     Registry for dtype inference
 

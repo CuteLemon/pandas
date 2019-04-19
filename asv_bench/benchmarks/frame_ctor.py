@@ -8,7 +8,7 @@ except ImportError:
     from pandas.core.datetools import * # noqa
 
 
-class FromDicts:
+class FromDicts(object):
 
     def setup(self):
         N, K = 5000, 50
@@ -41,7 +41,7 @@ class FromDicts:
         DataFrame(self.data2)
 
 
-class FromSeries:
+class FromSeries(object):
 
     def setup(self):
         mi = MultiIndex.from_product([range(100), range(100)])
@@ -51,7 +51,7 @@ class FromSeries:
         DataFrame(self.s)
 
 
-class FromDictwithTimestamp:
+class FromDictwithTimestamp(object):
 
     params = [Nano(1), Hour(1)]
     param_names = ['offset']
@@ -67,7 +67,7 @@ class FromDictwithTimestamp:
         DataFrame(self.d)
 
 
-class FromRecords:
+class FromRecords(object):
 
     params = [None, 1000]
     param_names = ['nrows']
@@ -81,7 +81,7 @@ class FromRecords:
         self.df = DataFrame.from_records(self.gen, nrows=nrows)
 
 
-class FromNDArray:
+class FromNDArray(object):
 
     def setup(self):
         N = 100000
@@ -91,7 +91,7 @@ class FromNDArray:
         self.df = DataFrame(self.data)
 
 
-class FromLists:
+class FromLists(object):
 
     goal_time = 0.2
 

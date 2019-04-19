@@ -6,7 +6,7 @@ from pandas.core.sparse.api import SparseDtype
 import pandas.util.testing as tm
 
 
-class TestSparseSeriesIndexing:
+class TestSparseSeriesIndexing(object):
 
     def setup_method(self, method):
         self.orig = pd.Series([1, np.nan, np.nan, 3, np.nan])
@@ -599,7 +599,7 @@ class TestSparseSeriesMultiIndexing(TestSparseSeriesIndexing):
         assert sparse is not res
 
 
-class TestSparseDataFrameIndexing:
+class TestSparseDataFrameIndexing(object):
 
     def test_getitem(self):
         orig = pd.DataFrame([[1, np.nan, np.nan],
@@ -976,7 +976,7 @@ class TestSparseDataFrameIndexing:
         tm.assert_sp_frame_equal(res, exp)
 
 
-class TestMultitype:
+class TestMultitype(object):
 
     def setup_method(self, method):
         self.cols = ['string', 'int', 'float', 'object']

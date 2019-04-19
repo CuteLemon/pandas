@@ -6,7 +6,7 @@ from pandas import read_sas
 import pandas.util.testing as tm
 
 
-class TestSas:
+class TestSas(object):
 
     def test_sas_buffer_format(self):
         # see gh-14947

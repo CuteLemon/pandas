@@ -4,7 +4,7 @@ from pandas import api
 from pandas.util import testing as tm
 
 
-class Base:
+class Base(object):
 
     def check(self, namespace, expected, ignored=None):
         # see which names are in the namespace, minus optional
@@ -133,7 +133,7 @@ class TestTesting(Base):
         self.check(testing, self.funcs)
 
 
-class TestTopLevelDeprecations:
+class TestTopLevelDeprecations(object):
 
     # top-level API deprecations
     # GH 13790
@@ -144,7 +144,7 @@ class TestTopLevelDeprecations:
             pd.TimeGrouper(freq='D')
 
 
-class TestCDateRange:
+class TestCDateRange(object):
 
     def test_deprecation_cdaterange(self):
         # GH17596

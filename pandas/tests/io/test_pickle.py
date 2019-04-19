@@ -289,7 +289,7 @@ def get_random_path():
     return '__%s__.pickle' % tm.rands(10)
 
 
-class TestCompression:
+class TestCompression(object):
 
     _compression_to_extension = {
         None: ".none",
@@ -427,7 +427,7 @@ class TestCompression:
 # test pickle compression
 # ---------------------
 
-class TestProtocol:
+class TestProtocol(object):
 
     @pytest.mark.parametrize('protocol', [-1, 0, 1, 2])
     def test_read(self, protocol, get_random_path):

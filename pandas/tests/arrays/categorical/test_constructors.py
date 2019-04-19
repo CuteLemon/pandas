@@ -16,7 +16,7 @@ from pandas import (
 import pandas.util.testing as tm
 
 
-class TestCategoricalConstructors:
+class TestCategoricalConstructors(object):
 
     def test_validate_ordered(self):
         # see gh-14058

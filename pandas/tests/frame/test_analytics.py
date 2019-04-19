@@ -231,7 +231,7 @@ def assert_bool_op_api(opname, bool_frame_with_na, float_string_frame,
         getattr(bool_frame_with_na, opname)(axis=1, bool_only=False)
 
 
-class TestDataFrameAnalytics:
+class TestDataFrameAnalytics(object):
 
     # ---------------------------------------------------------------------
     # Correlation and covariance
@@ -2242,7 +2242,7 @@ def df_main_dtypes():
                  'timedelta'])
 
 
-class TestNLargestNSmallest:
+class TestNLargestNSmallest(object):
 
     dtype_error_msg_template = ("Column {column!r} has dtype {dtype}, cannot "
                                 "use method {method!r} with this dtype")

@@ -17,7 +17,7 @@ from pandas.io.json.table_schema import (
     convert_pandas_type_to_json_field, set_default_names)
 
 
-class TestBuildSchema:
+class TestBuildSchema(object):
 
     def setup_method(self, method):
         self.df = DataFrame(
@@ -85,7 +85,7 @@ class TestBuildSchema:
         assert result == expected
 
 
-class TestTableSchemaType:
+class TestTableSchemaType(object):
 
     @pytest.mark.parametrize('int_type', [
         np.int, np.int16, np.int32, np.int64])
@@ -172,7 +172,7 @@ class TestTableSchemaType:
         assert as_json_table_type(CategoricalDtype()) == 'any'
 
 
-class TestTableOrient:
+class TestTableOrient(object):
 
     def setup_method(self, method):
         self.df = DataFrame(
@@ -491,7 +491,7 @@ class TestTableOrient:
         assert result == ['level_0', 'level_1', 0, 1, 2, 3]
 
 
-class TestTableOrientReader:
+class TestTableOrientReader(object):
 
     @pytest.mark.parametrize("index_nm", [
         None,

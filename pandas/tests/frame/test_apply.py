@@ -579,7 +579,7 @@ class TestDataFrameApply():
         tm.assert_frame_equal(result, expected)
 
 
-class TestInferOutputShape:
+class TestInferOutputShape(object):
     # the user has supplied an opaque UDF where
     # they are transforming the input that requires
     # us to infer the output

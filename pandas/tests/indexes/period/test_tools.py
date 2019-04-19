@@ -14,7 +14,7 @@ import pandas.core.indexes.period as period
 import pandas.util.testing as tm
 
 
-class TestPeriodRepresentation:
+class TestPeriodRepresentation(object):
     """
     Wish to match NumPy units
     """
@@ -54,7 +54,7 @@ class TestPeriodRepresentation:
         repr(period)
 
 
-class TestPeriodIndex:
+class TestPeriodIndex(object):
     def test_to_timestamp(self):
         index = period_range(freq='A', start='1/1/2001', end='12/1/2009')
         series = Series(1, index=index, name='foo')
@@ -227,7 +227,7 @@ class TestPeriodIndex:
             pidx.searchsorted(pd.Period('2014-01-01', freq='5D'))
 
 
-class TestPeriodIndexConversion:
+class TestPeriodIndexConversion(object):
     def test_tolist(self):
         index = period_range(freq='A', start='1/1/2001', end='12/1/2009')
         rs = index.tolist()

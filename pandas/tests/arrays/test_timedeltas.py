@@ -8,7 +8,7 @@ from pandas.core.arrays import TimedeltaArray
 import pandas.util.testing as tm
 
 
-class TestTimedeltaArrayConstructor:
+class TestTimedeltaArrayConstructor(object):
     def test_only_1dim_accepted(self):
         # GH#25282
         arr = np.array([0, 1, 2, 3], dtype='m8[h]').astype('m8[ns]')
@@ -62,7 +62,7 @@ class TestTimedeltaArrayConstructor:
         assert arr._data.base is not data
 
 
-class TestTimedeltaArray:
+class TestTimedeltaArray(object):
     def test_np_sum(self):
         # GH#25282
         vals = np.arange(5, dtype=np.int64).view('m8[h]').astype('m8[ns]')
@@ -130,7 +130,7 @@ class TestTimedeltaArray:
         assert a.freq is None
 
 
-class TestReductions:
+class TestReductions(object):
 
     def test_min_max(self):
         arr = TimedeltaArray._from_sequence([

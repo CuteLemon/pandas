@@ -85,7 +85,7 @@ def series_of_dtype_all_na(request):
     return request.param
 
 
-class TestMerge:
+class TestMerge(object):
 
     def setup_method(self, method):
         # aggregate multiple columns
@@ -1080,7 +1080,7 @@ def _check_merge(x, y):
         assert_frame_equal(result, expected, check_names=False)
 
 
-class TestMergeDtypes:
+class TestMergeDtypes(object):
 
     @pytest.mark.parametrize('right_vals', [
         ['foo', 'bar'],
@@ -1280,7 +1280,7 @@ def right():
          'Z': [1, 2]})
 
 
-class TestMergeCategorical:
+class TestMergeCategorical(object):
 
     def test_identical(self, left):
         # merging on the same, should preserve dtypes
@@ -1513,7 +1513,7 @@ def right_df():
     return DataFrame({'b': [300, 100, 200]}, index=[3, 1, 2])
 
 
-class TestMergeOnIndexes:
+class TestMergeOnIndexes(object):
 
     @pytest.mark.parametrize(
         "how, sort, expected",

@@ -89,7 +89,7 @@ def generate_bins_generic(values, binner, closed):
     return bins
 
 
-class BaseGrouper:
+class BaseGrouper(object):
     """
     This is an internal Grouper class, which actually holds
     the generated groups
@@ -810,7 +810,7 @@ def _is_indexed_like(obj, axes):
 # Splitting / application
 
 
-class DataSplitter:
+class DataSplitter(object):
 
     def __init__(self, data, labels, ngroups, axis=0):
         self.data = data

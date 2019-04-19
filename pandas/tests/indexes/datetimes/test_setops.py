@@ -16,7 +16,7 @@ from pandas.tseries.offsets import BMonthEnd, Minute, MonthEnd
 START, END = datetime(2009, 1, 1), datetime(2010, 1, 1)
 
 
-class TestDatetimeIndexSetOps:
+class TestDatetimeIndexSetOps(object):
     tz = [None, 'UTC', 'Asia/Tokyo', 'US/Eastern', 'dateutil/Asia/Singapore',
           'dateutil/US/Pacific']
 
@@ -318,7 +318,7 @@ class TestDatetimeIndexSetOps:
         assert rs.is_monotonic
 
 
-class TestBusinessDatetimeIndex:
+class TestBusinessDatetimeIndex(object):
 
     def setup_method(self, method):
         self.rng = bdate_range(START, END)
@@ -472,7 +472,7 @@ class TestBusinessDatetimeIndex:
         early_dr.union(late_dr, sort=sort)
 
 
-class TestCustomDatetimeIndex:
+class TestCustomDatetimeIndex(object):
 
     def setup_method(self, method):
         self.rng = bdate_range(START, END, freq='C')

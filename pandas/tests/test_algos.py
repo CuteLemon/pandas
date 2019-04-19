@@ -28,7 +28,7 @@ import pandas.util.testing as tm
 from pandas.util.testing import assert_almost_equal
 
 
-class TestMatch:
+class TestMatch(object):
 
     def test_ints(self):
         values = np.array([0, 2, 1])
@@ -64,7 +64,7 @@ class TestMatch:
         tm.assert_series_equal(result, expected)
 
 
-class TestFactorize:
+class TestFactorize(object):
 
     def test_basic(self):
 
@@ -341,7 +341,7 @@ class TestFactorize:
         tm.assert_numpy_array_equal(uniques, expected_uniques)
 
 
-class TestUnique:
+class TestUnique(object):
 
     def test_ints(self):
         arr = np.random.randint(0, 100, size=50)
@@ -604,7 +604,7 @@ class TestUnique:
         assert a[1] is unique_nulls_fixture2
 
 
-class TestIsin:
+class TestIsin(object):
 
     def test_invalid(self):
 
@@ -720,7 +720,7 @@ class TestIsin:
         # the user however could define a custom class
         # with similar behavior, then we at least should
         # fall back to usual python's behavior: "a in [a] == True"
-        class LikeNan:
+        class LikeNan(object):
             def __eq__(self):
                 return False
 
@@ -804,7 +804,7 @@ class TestIsin:
         tm.assert_numpy_array_equal(result, expected)
 
 
-class TestValueCounts:
+class TestValueCounts(object):
 
     def test_value_counts(self):
         np.random.seed(1234)
@@ -993,7 +993,7 @@ class TestValueCounts:
             tm.assert_series_equal(result, expected)
 
 
-class TestDuplicated:
+class TestDuplicated(object):
 
     def test_duplicated_with_nas(self):
         keys = np.array([0, 1, np.nan, 0, 2, np.nan], dtype=object)
@@ -1160,7 +1160,7 @@ class TestDuplicated:
         tm.assert_numpy_array_equal(result, expected)
 
 
-class GroupVarTestMixin:
+class GroupVarTestMixin(object):
 
     def test_group_var_generic_1d(self):
         prng = RandomState(1234)
@@ -1275,7 +1275,7 @@ class TestGroupVarFloat32(GroupVarTestMixin):
     rtol = 1e-2
 
 
-class TestHashTable:
+class TestHashTable(object):
 
     def test_lookup_nan(self, writable):
         xs = np.array([2.718, 3.14, np.nan, -7, 5, 2, 3])
@@ -1469,7 +1469,7 @@ def test_unique_label_indices():
                                 check_dtype=False)
 
 
-class TestRank:
+class TestRank(object):
 
     @td.skip_if_no_scipy
     def test_scipy_compat(self):
@@ -1548,7 +1548,7 @@ def test_arrmap():
     assert (result.dtype == np.bool_)
 
 
-class TestTseriesUtil:
+class TestTseriesUtil(object):
 
     def test_combineFunc(self):
         pass
@@ -1758,7 +1758,7 @@ def test_int64_add_overflow():
                                b_mask=np.array([False, True]))
 
 
-class TestMode:
+class TestMode(object):
 
     def test_no_mode(self):
         exp = Series([], dtype=np.float64)

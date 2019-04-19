@@ -9,7 +9,7 @@ import time
 from .exceptions import PyperclipWindowsException
 
 
-class CheckedCall:
+class CheckedCall(object):
 
     def __init__(self, f):
         super(CheckedCall, self).__setattr__("f", f)

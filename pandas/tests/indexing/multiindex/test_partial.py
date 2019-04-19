@@ -7,7 +7,7 @@ from pandas import DataFrame, MultiIndex
 from pandas.util import testing as tm
 
 
-class TestMultiIndexPartial:
+class TestMultiIndexPartial(object):
 
     def test_getitem_partial_int(self):
         # GH 12416

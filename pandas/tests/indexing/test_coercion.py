@@ -36,7 +36,7 @@ def check_comprehensiveness(request):
     yield
 
 
-class CoercionBase:
+class CoercionBase(object):
 
     klasses = ['index', 'series']
     dtypes = ['object', 'int64', 'float64', 'complex128', 'bool',
