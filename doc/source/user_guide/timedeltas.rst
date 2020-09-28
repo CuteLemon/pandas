@@ -5,7 +5,7 @@
 .. _timedeltas.timedeltas:
 
 ***********
-Time Deltas
+Time deltas
 ***********
 
 Timedeltas are differences in times, expressed in difference units, e.g. days, hours, minutes,
@@ -18,7 +18,7 @@ parsing, and attributes.
 Parsing
 -------
 
-You can construct a ``Timedelta`` scalar through various arguments:
+You can construct a ``Timedelta`` scalar through various arguments, including `ISO 8601 Duration`_ strings.
 
 .. ipython:: python
 
@@ -52,10 +52,6 @@ You can construct a ``Timedelta`` scalar through various arguments:
    # ISO 8601 Duration strings
    pd.Timedelta('P0DT0H1M0S')
    pd.Timedelta('P0DT0H0M0.000000123S')
-
-.. versionadded:: 0.23.0
-
-   Added constructor for `ISO 8601 Duration`_ strings
 
 :ref:`DateOffsets<timeseries.offsets>` (``Day, Hour, Minute, Second, Milli, Micro, Nano``) can also be used in construction.
 
@@ -229,7 +225,7 @@ Numeric reduction operation for ``timedelta64[ns]`` will return ``Timedelta`` ob
 
 .. _timedeltas.timedeltas_convert:
 
-Frequency Conversion
+Frequency conversion
 --------------------
 
 Timedelta Series, ``TimedeltaIndex``, and ``Timedelta`` scalars can be converted to other 'frequencies' by dividing by another timedelta,
@@ -327,8 +323,6 @@ similarly to the ``Series``. These are the *displayed* values of the ``Timedelta
 You can convert a ``Timedelta`` to an `ISO 8601 Duration`_ string with the
 ``.isoformat`` method
 
-.. versionadded:: 0.20.0
-
 .. ipython:: python
 
     pd.Timedelta(days=6, minutes=50, seconds=3,
@@ -360,7 +354,7 @@ inferred frequency upon creation:
 
    pd.TimedeltaIndex(['0 days', '10 days', '20 days'], freq='infer')
 
-Generating Ranges of Time Deltas
+Generating ranges of time deltas
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Similar to :func:`date_range`, you can construct regular ranges of a ``TimedeltaIndex``
@@ -388,8 +382,6 @@ The ``freq`` parameter can passed a variety of :ref:`frequency aliases <timeseri
 
    pd.timedelta_range(start='1 days', periods=5, freq='2D5H')
 
-
-.. versionadded:: 0.23.0
 
 Specifying ``start``, ``end``, and ``periods`` will generate a range of evenly spaced
 timedeltas from ``start`` to ``end`` inclusively, with ``periods`` number of elements

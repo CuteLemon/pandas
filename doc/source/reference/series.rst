@@ -29,25 +29,18 @@ Attributes
    Series.array
    Series.values
    Series.dtype
-   Series.ftype
    Series.shape
    Series.nbytes
    Series.ndim
    Series.size
-   Series.strides
-   Series.itemsize
-   Series.base
    Series.T
    Series.memory_usage
    Series.hasnans
-   Series.flags
    Series.empty
    Series.dtypes
-   Series.ftypes
-   Series.data
-   Series.is_copy
    Series.name
-   Series.put
+   Series.flags
+   Series.set_flags
 
 Conversion
 ----------
@@ -55,15 +48,14 @@ Conversion
    :toctree: api/
 
    Series.astype
+   Series.convert_dtypes
    Series.infer_objects
-   Series.convert_objects
    Series.copy
    Series.bool
    Series.to_numpy
    Series.to_period
    Series.to_timestamp
    Series.to_list
-   Series.get_values
    Series.__array__
 
 Indexing, iteration
@@ -77,8 +69,8 @@ Indexing, iteration
    Series.loc
    Series.iloc
    Series.__iter__
-   Series.iteritems
    Series.items
+   Series.iteritems
    Series.keys
    Series.pop
    Series.item
@@ -120,7 +112,7 @@ Binary operator functions
    Series.product
    Series.dot
 
-Function application, GroupBy & Window
+Function application, GroupBy & window
 --------------------------------------
 .. autosummary::
    :toctree: api/
@@ -138,7 +130,7 @@ Function application, GroupBy & Window
 
 .. _api.series.stats:
 
-Computations / Descriptive Stats
+Computations / descriptive stats
 --------------------------------
 .. autosummary::
    :toctree: api/
@@ -149,8 +141,6 @@ Computations / Descriptive Stats
    Series.autocorr
    Series.between
    Series.clip
-   Series.clip_lower
-   Series.clip_upper
    Series.corr
    Series.count
    Series.cov
@@ -187,9 +177,8 @@ Computations / Descriptive Stats
    Series.is_monotonic_increasing
    Series.is_monotonic_decreasing
    Series.value_counts
-   Series.compound
 
-Reindexing / Selection / Label manipulation
+Reindexing / selection / label manipulation
 -------------------------------------------
 .. autosummary::
    :toctree: api/
@@ -212,7 +201,6 @@ Reindexing / Selection / Label manipulation
    Series.rename_axis
    Series.reset_index
    Series.sample
-   Series.select
    Series.set_axis
    Series.take
    Series.tail
@@ -228,11 +216,18 @@ Missing data handling
 .. autosummary::
    :toctree: api/
 
-   Series.isna
-   Series.notna
+   Series.backfill
+   Series.bfill
    Series.dropna
+   Series.ffill
    Series.fillna
    Series.interpolate
+   Series.isna
+   Series.isnull
+   Series.notna
+   Series.notnull
+   Series.pad
+   Series.replace
 
 Reshaping, sorting
 ------------------
@@ -247,22 +242,24 @@ Reshaping, sorting
    Series.sort_index
    Series.swaplevel
    Series.unstack
+   Series.explode
    Series.searchsorted
    Series.ravel
    Series.repeat
    Series.squeeze
    Series.view
 
-Combining / joining / merging
------------------------------
+Combining / comparing / joining / merging
+-----------------------------------------
 .. autosummary::
    :toctree: api/
 
    Series.append
+   Series.compare
    Series.replace
    Series.update
 
-Time series-related
+Time Series-related
 -------------------
 .. autosummary::
    :toctree: api/
@@ -298,14 +295,14 @@ Sparse                      :ref:`sparse <api.series.sparse>`
 
 .. _api.series.dt:
 
-Datetimelike Properties
+Datetimelike properties
 ~~~~~~~~~~~~~~~~~~~~~~~
 
 ``Series.dt`` can be used to access the values of the series as
 datetimelike and return several properties.
 These can be accessed like ``Series.dt.<property>``.
 
-Datetime Properties
+Datetime properties
 ^^^^^^^^^^^^^^^^^^^
 
 .. autosummary::
@@ -341,7 +338,7 @@ Datetime Properties
    Series.dt.tz
    Series.dt.freq
 
-Datetime Methods
+Datetime methods
 ^^^^^^^^^^^^^^^^
 
 .. autosummary::
@@ -360,7 +357,7 @@ Datetime Methods
    Series.dt.month_name
    Series.dt.day_name
 
-Period Properties
+Period properties
 ^^^^^^^^^^^^^^^^^
 
 .. autosummary::
@@ -371,7 +368,7 @@ Period Properties
    Series.dt.start_time
    Series.dt.end_time
 
-Timedelta Properties
+Timedelta properties
 ^^^^^^^^^^^^^^^^^^^^
 
 .. autosummary::
@@ -384,7 +381,7 @@ Timedelta Properties
    Series.dt.nanoseconds
    Series.dt.components
 
-Timedelta Methods
+Timedelta methods
 ^^^^^^^^^^^^^^^^^
 
 .. autosummary::
@@ -474,11 +471,13 @@ strings and apply several methods to it. These can be accessed like
        Series.str
        Series.cat
        Series.dt
+       Series.sparse
+       DataFrame.sparse
        Index.str
 
 .. _api.series.cat:
 
-Categorical Accessor
+Categorical accessor
 ~~~~~~~~~~~~~~~~~~~~
 
 Categorical-dtype specific methods and attributes are available under
@@ -508,7 +507,7 @@ the ``Series.cat`` accessor.
 
 .. _api.series.sparse:
 
-Sparse Accessor
+Sparse accessor
 ~~~~~~~~~~~~~~~
 
 Sparse-dtype specific methods and attributes are provided under the
@@ -525,9 +524,38 @@ Sparse-dtype specific methods and attributes are provided under the
 
 .. autosummary::
    :toctree: api/
+   :template: autosummary/accessor_method.rst
 
    Series.sparse.from_coo
    Series.sparse.to_coo
+
+.. _api.series.flags:
+
+Flags
+~~~~~
+
+Flags refer to attributes of the pandas object. Properties of the dataset (like
+the date is was recorded, the URL it was accessed from, etc.) should be stored
+in :attr:`Series.attrs`.
+
+.. autosummary::
+   :toctree: api/
+
+   Flags
+
+.. _api.series.metadata:
+
+Metadata
+~~~~~~~~
+
+:attr:`Series.attrs` is a dictionary for storing global metadata for this Series.
+
+.. warning:: ``Series.attrs`` is considered experimental and may change without warning.
+
+.. autosummary::
+   :toctree: api/
+
+   Series.attrs
 
 
 Plotting
@@ -560,7 +588,7 @@ specific plotting methods of the form ``Series.plot.<kind>``.
 
    Series.hist
 
-Serialization / IO / Conversion
+Serialization / IO / conversion
 -------------------------------
 .. autosummary::
    :toctree: api/
@@ -573,21 +601,8 @@ Serialization / IO / Conversion
    Series.to_xarray
    Series.to_hdf
    Series.to_sql
-   Series.to_msgpack
    Series.to_json
-   Series.to_sparse
-   Series.to_dense
    Series.to_string
    Series.to_clipboard
    Series.to_latex
-
-
-Sparse
-------
-
-.. autosummary::
-   :toctree: api/
-
-   SparseSeries.to_coo
-   SparseSeries.from_coo
-
+   Series.to_markdown

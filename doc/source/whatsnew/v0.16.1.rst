@@ -1,7 +1,7 @@
 .. _whatsnew_0161:
 
-v0.16.1 (May 11, 2015)
-----------------------
+Version 0.16.1 (May 11, 2015)
+-----------------------------
 
 {{ header }}
 
@@ -216,7 +216,7 @@ when sampling from rows.
 
 .. _whatsnew_0161.enhancements.string:
 
-String Methods Enhancements
+String methods enhancements
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 :ref:`Continuing from v0.16.0 <whatsnew_0160.enhancements.string>`, the following
@@ -232,7 +232,7 @@ enhancements make string operations easier and more consistent with standard pyt
      idx = pd.Index([' jack', 'jill ', ' jesse ', 'frank'])
      idx.str.strip()
 
-  One special case for the `.str` accessor on ``Index`` is that if a string method returns ``bool``, the ``.str`` accessor
+  One special case for the ``.str`` accessor on ``Index`` is that if a string method returns ``bool``, the ``.str`` accessor
   will return a ``np.array`` instead of a boolean ``Index`` (:issue:`8875`). This enables the following expression
   to work naturally:
 
@@ -279,7 +279,7 @@ enhancements make string operations easier and more consistent with standard pyt
 
 .. _whatsnew_0161.enhancements.other:
 
-Other Enhancements
+Other enhancements
 ^^^^^^^^^^^^^^^^^^
 
 - ``BusinessHour`` offset is now supported, which represents business hours starting from 09:00 - 17:00 on ``BusinessDay`` by default. See :ref:`Here <timeseries.businesshour>` for details. (:issue:`7905`)
@@ -310,7 +310,7 @@ Other Enhancements
 - ``get_dummies`` function now accepts ``sparse`` keyword.  If set to ``True``, the return ``DataFrame`` is sparse, e.g. ``SparseDataFrame``. (:issue:`8823`)
 - ``Period`` now accepts ``datetime64`` as value input. (:issue:`9054`)
 
-- Allow timedelta string conversion when leading zero is missing from time definition, ie `0:00:00` vs `00:00:00`. (:issue:`9570`)
+- Allow timedelta string conversion when leading zero is missing from time definition, ie ``0:00:00`` vs ``00:00:00``. (:issue:`9570`)
 - Allow ``Panel.shift`` with ``axis='items'`` (:issue:`9890`)
 
 - Trying to write an excel file now raises ``NotImplementedError`` if the ``DataFrame`` has a ``MultiIndex`` instead of writing a broken Excel file. (:issue:`9794`)
@@ -329,11 +329,11 @@ Other Enhancements
 API changes
 ~~~~~~~~~~~
 
-- When passing in an ax to ``df.plot( ..., ax=ax)``, the `sharex` kwarg will now default to `False`.
+- When passing in an ax to ``df.plot( ..., ax=ax)``, the ``sharex`` kwarg will now default to ``False``.
   The result is that the visibility of xlabels and xticklabels will not anymore be changed. You
   have to do that by yourself for the right axes in your figure or set ``sharex=True`` explicitly
   (but this changes the visible for all axes in the figure, not only the one which is passed in!).
-  If pandas creates the subplots itself (e.g. no passed in `ax` kwarg), then the
+  If pandas creates the subplots itself (e.g. no passed in ``ax`` kwarg), then the
   default is still ``sharex=True`` and the visibility changes are applied.
 
 - :meth:`~pandas.DataFrame.assign` now inserts new columns in alphabetical order. Previously
@@ -351,12 +351,12 @@ Deprecations
 
 .. _whatsnew_0161.index_repr:
 
-Index Representation
+Index representation
 ~~~~~~~~~~~~~~~~~~~~
 
 The string representation of ``Index`` and its sub-classes have now been unified. These will show a single-line display if there are few values; a wrapped multi-line display for a lot of values (but less than ``display.max_seq_items``; if lots of items (> ``display.max_seq_items``) will show a truncated display (the head and tail of the data). The formatting for ``MultiIndex`` is unchanged (a multi-line wrapped display). The display width responds to the option ``display.max_seq_items``, which is defaulted to 100. (:issue:`6482`)
 
-Previous Behavior
+Previous behavior
 
 .. code-block:: ipython
 
@@ -378,7 +378,7 @@ Previous Behavior
    [2013-01-01 00:00:00-05:00, ..., 2013-04-14 00:00:00-04:00]
    Length: 104, Freq: D, Timezone: US/Eastern
 
-New Behavior
+New behavior
 
 .. ipython:: python
 
@@ -399,7 +399,7 @@ New Behavior
 
 .. _whatsnew_0161.performance:
 
-Performance Improvements
+Performance improvements
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
 - Improved csv write performance with mixed dtypes, including datetimes by up to 5x (:issue:`9940`)
@@ -409,7 +409,7 @@ Performance Improvements
 
 .. _whatsnew_0161.bug_fixes:
 
-Bug Fixes
+Bug fixes
 ~~~~~~~~~
 
 - Bug where labels did not appear properly in the legend of ``DataFrame.plot()``, passing ``label=`` arguments works, and Series indices are no longer mutated. (:issue:`9542`)
@@ -442,7 +442,7 @@ Bug Fixes
 - Bug in ``read_csv`` and ``read_table`` when using ``skip_rows`` parameter if blank lines are present. (:issue:`9832`)
 - Bug in ``read_csv()`` interprets ``index_col=True`` as ``1`` (:issue:`9798`)
 - Bug in index equality comparisons using ``==`` failing on Index/MultiIndex type incompatibility (:issue:`9785`)
-- Bug in which ``SparseDataFrame`` could not take `nan` as a column name (:issue:`8822`)
+- Bug in which ``SparseDataFrame`` could not take ``nan`` as a column name (:issue:`8822`)
 - Bug in ``to_msgpack`` and ``read_msgpack`` zlib and blosc compression support (:issue:`9783`)
 - Bug ``GroupBy.size`` doesn't attach index name properly if grouped by ``TimeGrouper`` (:issue:`9925`)
 - Bug causing an exception in slice assignments because ``length_of_indexer`` returns wrong results (:issue:`9995`)
